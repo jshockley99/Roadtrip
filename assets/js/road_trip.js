@@ -66,7 +66,7 @@ $('#myModal').on('shown.bs.modal', function () {
 
      //on clicking curate playlist button	
     $.ajax({
-       url: 'https://api.spotify.com/v1/me',
+       url: 'https://api.spotify.com/v1/browse/categories/atlanta/playlists',
        headers: {
            'Authorization': 'Bearer ' + accessToken
        },
