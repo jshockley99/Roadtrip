@@ -1,5 +1,15 @@
-console.log( "back on the page" );
-var token = window.location.hash.substr(1);
+
+
+var hashString = window.location.hash.substr(1);
+
+var hashArray = hashString.split( "&" );
+
+console.log( hashArray );
+
+var accessKeyArray = hashArray[0].split("=");
+console.log(accessKeyArray);
+ var accessKey = accessKeyArray[1];
+console.log(accessKey);
 
 $(document).ready(function() {
 
