@@ -64,17 +64,19 @@ $('#myModal').on('shown.bs.modal', function () {
      });
 
 
-     //on clicking curate playlist button	
+     //on clicking curate playlist button
+     $(".btn").on("click",function(){	
+     var city = 'party';
     $.ajax({
-       url: 'https://api.spotify.com/v1/browse/categories/atlanta/playlists',
+       url: 'https://api.spotify.com/v1/browse/categories/'+city+'/playlists',
        headers: {
-           'Authorization': 'Bearer ' + accessToken
+           'Authorization': 'Bearer ' + accessToken,
        },
        success: function(response) {
            console.log(response);
        }
     });
-    
+    });
 
 
 });
