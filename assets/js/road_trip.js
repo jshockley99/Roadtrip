@@ -1,3 +1,5 @@
+console.log( "back on the page" );
+
 $(document).ready(function() {
 
     /*
@@ -41,22 +43,7 @@ $(document).ready(function() {
 
 		window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://jshockley99.github.io/Roadtrip&response_type=token&state=123";
         
-        $.ajax(
-  {
-    method: "POST",
-    url: "https://accounts.spotify.com/api/token",
-    data: {
-      "grant_type":    "authorization_code",
-      "code":          code,
-      "redirect_uri":  redirectUri,
-      "client_secret": clientSecret,
-      "client_id":     clientID,
-    },
-    success: function(result) {
-      console.log("working");
-    },
-  }
-);
+   
      	 //var token = window.location.hash.substr(1);
 	    // console.log(token);
          //    method: "GET",
@@ -66,6 +53,8 @@ $(document).ready(function() {
          //     window.location.href(response);
          // });
      });
+
+
      	
     /*var accessToken = 'BQDefyVOD_4MEBrMlMoVYU3Zl8klNnlJ62_cCTNfrwqekhDr1v9C7MJqikb4jShwGDz2g117ZgyHNUCkchGuBvtQLXO1CxX2LMKhF2mwcgS7RKbu1_0s_16xUiaRfvEKGMaQE-TF'
     $.ajax({
