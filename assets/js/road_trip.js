@@ -1,4 +1,5 @@
 console.log( "back on the page" );
+var token = window.location.hash.substr(1);
 
 $(document).ready(function() {
 
