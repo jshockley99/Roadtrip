@@ -17,6 +17,9 @@ else{
 
 $(document).ready(function() {
 
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
     /*
     	var apiKey = "AIzaSyBaNQW3FobOncUto_UN8kX1wDhI8JzJKcA"
     	var queryURL = "https://maps.googleapis.com/maps/api/directions/json"
