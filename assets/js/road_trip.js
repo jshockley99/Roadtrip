@@ -103,7 +103,7 @@ $(document).ready(function() {
                     console.log(playlistArray);
 
                     //create object using city and playlistArray as key value pairs
-                    cityPlaylist.city = playlistArray;
+                    cityPlaylist[city] = playlistArray;
                     console.log(cityPlaylist);
 
                 } //end ajax call function
