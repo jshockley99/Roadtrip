@@ -63,6 +63,18 @@ $(document).ready(function() {
 
     });
 
+    //get spotify user id
+    $.ajax({
+                url: 'https://api.spotify.com/v1/me',
+                headers: {
+                    'Authorization': 'Bearer ' + accessToken,
+                },
+                success: function(response) {
+                	console.log(response);
+
+                } //ends success function
+
+            })//ends ajax call
 
 
     //on clicking curate playlist button
@@ -111,7 +123,9 @@ $(document).ready(function() {
             }); //end ajax call
         } //end getCityPlaylistObj function
         getCityPlaylistObj();
-    });
+    }); //ends continue button click listener
+    //click for 
+
 
 
 });
