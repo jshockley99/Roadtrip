@@ -22,3 +22,7 @@
     background-color: #555;
     border: 1px solid #333;
 }
+
+#roadtrip-form-page {
+    height: 100vh;
+}
