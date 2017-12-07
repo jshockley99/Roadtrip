@@ -69,12 +69,21 @@ $(document).ready(function() {
 
      //on clicking curate playlist button
      $("#continue").on("click",function(){
-     	//take value from selection on form
-     	
+     	//take value from selection on form and get city
 
-     var city = charlotte;
+     	//get city from array parsed from localStorage
+     	/*var cityStArray = ["Atlanta,GA", "Charlotte,NC", "New York,NY"]
+     	for (var i = 0; i < cityStArray.length; i++) {
+     		var splitCityStArrays = cityStArray[i].split(",");
+          console.log(splitCityStArray);
+          var city = splitCityStArray[0];
+          console.log(city);
+     	}
+     */
 
      //call spotify and get corresponding playlist
+
+     var city = "charlotte";
     $.ajax({
        url: 'https://api.spotify.com/v1/browse/categories/'+city+'/playlists',
        headers: {
