@@ -80,7 +80,7 @@ $(document).ready(function() {
      */
      	var city = "charlotte";
         //for each city ,call spotify and get corresponding playlist
-        function getCityPlaylistObj {
+        function getCityPlaylistObj() {
             //create new array of playlists
             var playlistArray = [];
             var cityPlaylist = {};
