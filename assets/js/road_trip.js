@@ -58,13 +58,13 @@ $(document).ready(function() {
     var spotifyAuthUrl = 'https://accounts.spotify.com/authorize?client_id=' + clientID + '&redirect_uri=' + redirectUri + '&scope=' + scope + '&response_type=token';
 
     //spotify auth ajax pull on clicking authorise button
-    /* $("#spotAuth").on("click", function(event) {
+     $("#spotAuth").on("click", function(event) {
         event.preventDefault();
 
 		window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://jshockley99.github.io/Roadtrip&response_type=token&state=123";
         
      });
-     */
+     
 
 
      //on clicking curate playlist button
@@ -85,7 +85,7 @@ $(document).ready(function() {
 
      var city = "charlotte";
     $.ajax({
-       url: 'https://api.spotify.com/v1/browse/categories/'+city+'/playlists',
+       url: 'https://api.spotify.com/v1/search?q='+city+'&type=playlist',
        headers: {
            'Authorization': 'Bearer ' + accessToken,
        },
