@@ -17,9 +17,11 @@ else{
 
 $(document).ready(function() {
 
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').focus()
-})
+// $('#myModal').on('shown.bs.modal', function () {
+//   $('#myInput').focus()
+
+//   $("#modal").attr("src", "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://jshockley99.github.io/Roadtrip&response_type=token&state=123");
+// })
     /*
     	var apiKey = "AIzaSyBaNQW3FobOncUto_UN8kX1wDhI8JzJKcA"
     	var queryURL = "https://maps.googleapis.com/maps/api/directions/json"
