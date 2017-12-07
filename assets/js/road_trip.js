@@ -73,7 +73,12 @@ $('#myModal').on('shown.bs.modal', function () {
            'Authorization': 'Bearer ' + accessToken,
        },
        success: function(response) {
-           console.log(response);
+       	var data = response.playlists.items;
+           console.log(data);
+
+           for (var i = 0; i < data.length; i++) {
+           	data[i]
+           }
        }
     });
     });
