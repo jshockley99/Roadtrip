@@ -1,5 +1,5 @@
 
-
+if(window.location.hash){
 var hashString = window.location.hash.substr(1);
 
 var hashArray = hashString.split( "&" );
@@ -8,8 +8,12 @@ console.log( hashArray );
 
 var accessKeyArray = hashArray[0].split("=");
 console.log(accessKeyArray);
- var accessKey = accessKeyArray[1];
-console.log(accessKey);
+ var accessToken = accessKeyArray[1];
+console.log(accessToken);
+}
+else{
+	//open login modal 
+}
 
 $(document).ready(function() {
 
@@ -44,7 +48,7 @@ $(document).ready(function() {
     */
 
     //spotify api calls
-    //for each city, use spotify url to get playlists
+  
 
     //get spotify authorisation
     var clientID = "4a7d4aa309ce40a9b644635d2e74b1bb";
@@ -59,30 +63,22 @@ $(document).ready(function() {
 
 		window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://jshockley99.github.io/Roadtrip&response_type=token&state=123";
         
-   
-     	 //var token = window.location.hash.substr(1);
-	    // console.log(token);
-         //    method: "GET",
-         //     url: 'https://cors-anywhere.herokuapp.com/' + spotifyAuthUrl
-         // }).done(function(response) {
-         // 	console.log(response);
-         //     window.location.href(response);
-         // });
      });
 
 
-     	
-    /*var accessToken = 'BQDefyVOD_4MEBrMlMoVYU3Zl8klNnlJ62_cCTNfrwqekhDr1v9C7MJqikb4jShwGDz2g117ZgyHNUCkchGuBvtQLXO1CxX2LMKhF2mwcgS7RKbu1_0s_16xUiaRfvEKGMaQE-TF'
+     //on clicking curate playlist button
+     $(".btn").on("click",function(){	
+     var city = 'party';
     $.ajax({
-       url: 'https://api.spotify.com/v1/me',
+       url: 'https://api.spotify.com/v1/browse/categories/'+city+'/playlists',
        headers: {
-           'Authorization': 'Bearer ' + accessToken
+           'Authorization': 'Bearer ' + accessToken,
        },
        success: function(response) {
            console.log(response);
        }
     });
-    */
+    });
 
 
 });
