@@ -1,61 +1,47 @@
 $(document).ready(function() {
 
-    var latLongArray = [];
+    var origin;
+    var destination;
+   
+ 
+// function to remove duplicte items out of an array
+var unique = (arrArg) => {
+  return arrArg.filter((elem, pos, arr) => {
+    return arr.indexOf(elem) == pos;
+  });
+}
+
+// function to get lat and lng and then get cities & states
+ function apiCall() {
+localStorage.clear();
+var latLongArray = [];
+    
     var latLong = [];
     var addresses = [];
-    var cityState = [];
 
-    function filterLatLngResponse(response) {
-
-      console.log("You made it to the function ");
-      console.log("This is the response in th function " + response);
-        
-      var results = response;
-        results.forEach(function(result, index) {
-                  console.log(result.results);
-
-                var components = result.address_components;
-                var formattedAddress = result.formatted_address;
-                var city;
-                var state;
-            
-               components.forEach(function(component) {
-
-            //console.log(component);
-
-                if (component.types[0] === "locality" && component.types[1] === "political") {
-                    if (component.long_name) {
-                        city = component.long_name;
-                        //console.log(city);
-
-                    }
-                }
-                if (component.types[0] === "administrative_area_level_1" && component.types[1] === "political") {
-                    if (component.short_name) {
-                        state = component.short_name;
-                        // make sure city or state has a value and !== undefined
-                        if (city && state) {
-                            cityState.push(city + "," + state);
-                         
-                        }
-                    }
-                }
-            });  // closes components forEach
-       });  // closes results forEach
-    // })   // end of obj.forEach 
-  //    console.log(cityState);
-    }  // end of filterLatLanResponse function   
 
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json?key=AIzaSyBaNQW3FobOncUto_UN8kX1wDhI8JzJKcA&origin=Atlanta&destination=New%20York%20City",
+        "url": "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/directions/json",  //?key=AIzaSyBaNQW3FobOncUto_UN8kX1wDhI8JzJKcA&origin=Atlanta&destination=New%20York%20City",
         "method": "GET",
         "headers": {
             "Cache-Control": "no-cache",
             "Postman-Token": "d1fd51bb-4e28-6e70-798b-c0532af76af0"
         }
     }
+
+
+    settings.url += "?" + $.param({
+      'origin': origin,
+      'destination': destination,
+      'key': 'AIzaSyBaNQW3FobOncUto_UN8kX1wDhI8JzJKcA'
+    })
+      console.log(settings.url);
+     //  grab origin and destination when submit is clicked
+   
+
+
 
     // first ajax call to get lat and lng bases on starting point and destination
     $.ajax(settings).done(function(response) {
@@ -96,81 +82,13 @@ $(document).ready(function() {
             });
             //console.log(latlngSettings);
             latLongArray.push(latlngSettings);
-           
-    
-            
-           
-
-
-
-
-            /*
-              $.ajax(latlngSettings).done(function(response) {
-
-                results = response.results;
-                results.forEach(function(result, index) {
-                    var components = result.address_components;
-                    var formattedAddress = result.formatted_address;
-
-                    var city;
-                    var state;
-
-
-                    //console.log(result.formatted_address);
-
-                    //addresses.push("{address: " + result.formatted_address + "}");
-
-
-
-                    components.forEach(function(component) {
-
-                        //console.log(component);
-
-                        if (component.types[0] === "locality" && component.types[1] === "political") {
-                            if (component.long_name) {
-                                city = component.long_name;
-                                //console.log(city);
-
-                            }
-                        }
-                        if (component.types[0] === "administrative_area_level_1" && component.types[1] === "political") {
-                            if (component.short_name) {
-                                state = component.short_name;
-                                // make sure city or state has a value and !== undefined
-                                if (city && state) {
-                                    cityState.push(city + "," + state);
-                                    console.log(cityState);
-
-
-
-                                }
-                            }
-                        }
-
-
-                        // if (city !== undefined  && state !== undefined){
-                        //console.log(city + "," + state)
-                        // }
-
-                    });
-
-                    // cityState = JSON.stringify(cityState);
-                   
-
-                });
-
-
-
-
-            }); //closeses done
-  */
-          
-       
-
+                 
         });   // end of forEach
+    
+        //  Push each response to local storage and store -- will be used later to get city state info
         var citiesArray= [];
         $.when(
-          
+           
             latLongArray.forEach(function (array) {
             $.get(array, function(response) {
               citiesArray.push(response);
@@ -183,33 +101,23 @@ $(document).ready(function() {
          ).then(function() {
           
            console.log("Hey");
-        //  console.log(citiesArray );
-          
-
-         
-          
-          localStorage.setItem("citiesArray", JSON.stringify(citiesArray));          ;
+        
+          //localStorage.setItem("citiesArray", JSON.stringify(citiesArray));          ;
          // console.log(newArray);
-
-
-
-          
-
-          
          })
-
-
         // console.log(latLongArray);
-
-
-
     })  //  closes inital ajax call;
+  }  // closes apiCall Function 
+
+  function getCityState() {
+    var cityState = [];
+    console.log("cityState");
     var city;
     var state;
     var results = [];
     var length = localStorage.getItem("arrayLength");
-    console.log(length);
-
+    console.log(localStorage.getItem("arrayLength"));
+    localStorage.setItem("citiesAndState", ""); 
     for (i=0; i < length; i++) {
       var response = localStorage.getItem("response" + i);
      response = JSON.parse(response);
@@ -237,7 +145,9 @@ $(document).ready(function() {
                                     cityState.push(city + "," + state);
                                     console.log(cityState);
 
+                                    cityState = unique(cityState);
 
+                                  
                                     localStorage.setItem("citiesAndState", JSON.stringify(cityState));
 
                                 }
@@ -265,6 +175,26 @@ $(document).ready(function() {
 
 
   //  console.log(latLong);
+  
+  } // end of cityState function 
+   // on click event
+   
+     $('#submit').on("click", function(e){
+        e.preventDefault();
+        origin = $('#origin-input').val();
+        destination = $('#destination-input').val();
+        console.log(origin);
+        console.log("You clicked submit");
+        localStorage.clear();
+        apiCall();    
+    })
+
+     $('#continue').on("click", function(e){
+      cityState = [""];
+        e.preventDefault();
+        getCityState();
+      });
+
 
 
 }); // end of document ready
