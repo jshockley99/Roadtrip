@@ -33,7 +33,7 @@
                         <h1 class="cover-heading">RoadTrip</h1>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Authorise Spotify</button>
-                        <!-- Modal -->
+                        <!-- Modal 
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                                     <label for="destinationInput">Destination</label>
                                     <input type="text" class="form-control" id="destinationInput" />
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                             </form>
                         </div>
                         <div class="panel-footer">
@@ -82,27 +82,14 @@
                     </div>
                 </div>
                 <div id="city-page" class="panel panel-default">
-                    <h1>Road Trip Playlist</h1>
-                    <h2>Cities visited during this trip</h2>
-                    <table class="city-table">
-                        <tbody>
-                            <tr>
-                                <td>Greenville</td>
-                            </tr>
-                            <tr>
-                                <td>Charlotte</td>
-                            </tr>
-                            <tr>
-                                <td>Richmond</td>
-                            </tr>
-                            <tr>
-                                <td>Washington</td>
-                            </tr>
-                            <tr>
-                                <td>Philadelphia</td>
-                            </tr>
+                    <h3>Road Trip Playlist</h3>
+                    <h4>Cities visited during this trip</h4>
+                    <div id="table-container">
+                    	<table id="city-table" class="table">
+                        <tbody id="city-list">
                         </tbody>
-                    </table>
+                    	</table>
+                    </div>
                     <button class="btn btn-primary">Continue</button>
                 </div>
                 <div id="playlist-page" class="panel panel-default">
