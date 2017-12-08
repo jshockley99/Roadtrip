@@ -34,4 +34,7 @@ tr.selected {
 
 #table-container {
     padding: 0 50px;
+  
+#roadtrip-form-page {
+    height: 100vh;
 }

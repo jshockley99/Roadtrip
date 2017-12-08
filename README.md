@@ -1,7 +1,7 @@
 # Project Title: Roadtrip Playlist
 
 Team Members: 
-Julie Shockley, Ogheneovie Omene, Peter Fullen, Janessa Hanna 
+Julie Shockley, Ovie Omene, Peter Fullen, Janessa Hanna 
 
 Project Description: 
 Our app is going to build a music playlist based on locations. The user will input a starting location and end location, then the app will generate a playlist based on the major cities in between the two cities. 
