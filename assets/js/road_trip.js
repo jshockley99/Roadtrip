@@ -33,6 +33,7 @@ $(document).ready(function() {
     var cityPlaylist = {};
     var city = "";
     var currentPlaylistId;
+    var playlistArray = [];
     //function to get user id
     function getUserId(){
         $.ajax({
@@ -54,8 +55,8 @@ $(document).ready(function() {
     $("#curate").on("click", function() {
         //take value from selection on form and get city
         
-        var playlistArray = [];
-        city = "charlotte"; //whatever is passed from the click event
+        playlistArray = [];
+         city = "charlotte"; //whatever is passed from the click event
         //for each city ,call spotify and get corresponding playlist
         function getCityPlaylistObj() {
             //create new array of playlists
@@ -89,10 +90,12 @@ $(document).ready(function() {
         //get a random value from the corresponding array
         var randomiser = Math.round(Math.random()*playlistArray.length);
         //something isn't right around here..
+        console.log(randomiser);
+        console.log(playlistArray);
         currentPlaylistId = playlistArray[randomiser];
         console.log(currentPlaylistId);
         console.log(userId);
-        $("#playlist-page").append('<iframe src="https://open.spotify.com/embed?uri=https://open.spotify.com/user/"'+userId+'"/playlist/"'+currentPlaylistId+'"&theme=white" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>')
+        $("#playlist-page").html('<iframe src="https://open.spotify.com/embed?uri=https://open.spotify.com/user/"'+userId+'"/playlist/"'+currentPlaylistId+'"&theme=white" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>')
     }//end of randomPlaylistSel
     randomPlaylistSel();
     }); //ends continue button click listener
