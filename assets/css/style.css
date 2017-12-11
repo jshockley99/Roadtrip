@@ -23,6 +23,18 @@
     border: 1px solid #333;
 }
 
+/* Custom styles */
+tr.selected {
+  background-color: #555;
+}
+
+#city-table {
+  margin: 20px auto;
+  }
+
+#table-container {
+    padding: 0 50px;
+  
 #roadtrip-form-page {
     height: 100vh;
 }
