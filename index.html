@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +15,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- custom JS file  -->
         <script src="./assets/js/road_trip.js"></script>
-
+        <script type="text/javascript" src="./assets/js/google_api.js"></script>
 
         <!-- css reset -->
         <link rel="stylesheet" type="text/css" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
@@ -33,6 +34,7 @@
         
     </head>
 
+
     <body>
         <div id="fullpage">
             <div class="section" id="section0">
@@ -43,19 +45,21 @@
                     </div>
                 </div>
 
+
                 <div class="slide" id="slide2">
                     <div class="content" id="roadtrip-form-page">
                         <form role="form">
                             <div class="form-group">
                                 <label for="startingLocationInput">Starting Location</label>
-                                <input type="text" class="form-control" id="startingLocationInput" />
+                                <input type="text" class="form-control" id="startingLocationInput" required />
                             </div>
                             <div class="form-group">
                                 <label for="destinationInput">Destination</label>
-                                <input type="text" class="form-control" id="destinationInput" />
+                                <input type="text" class="form-control" id="destinationInput" required />
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
+
                     </div>
                 </div>
 
