@@ -22,7 +22,17 @@
     background-color: #555;
     border: 1px solid #333;
 }
+/* body {
+    overflow: hidden;
+ }*/
 
+.container {
+    width: 500vw;
+}
+
+ #landing-page, #roadtrip-form-page, #city-page, #playlist-page {
+    display: inline-block;
+}
 /* Custom styles */
 tr.selected {
   background-color: #555;
@@ -34,7 +44,88 @@ tr.selected {
 
 #table-container {
     padding: 0 50px;
-  
+}
 #roadtrip-form-page {
     height: 100vh;
-}
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+
+ }
+
+ /*fullpage js css*/
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+        form,fieldset,input,textarea,p,blockquote,th,td {
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration:none;
+        }
+        table {
+            border-spacing: 0;
+        }
+        fieldset,img {
+            border: 0;
+        }
+        address,caption,cite,code,dfn,em,strong,th,var {
+            font-weight: normal;
+            font-style: normal;
+        }
+        strong{
+            font-weight: bold;
+        }
+        ol,ul {
+            list-style: none;
+            margin:0;
+            padding:0;
+        }
+        caption,th {
+            text-align: left;
+
+        }
+        h1,h2,h3,h4,h5,h6 {
+            font-weight: normal;
+            font-size: 100%;
+            margin:0;
+            padding:0;
+            color:#444;
+        }
+        q:before,q:after {
+            content:'';
+        }
+        abbr,acronym { border: 0;
+        }
+
+
+        /* Custom CSS
+         * --------------------------------------- */
+        body{
+            font-family: arial,helvetica;
+            color: #F2F2F2;
+        }
+        h1{
+            font-size: 6em;
+        }
+        p{
+            font-size: 2em;
+        }
+        .content{
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+        }
+
+        /* Section 1
+         * --------------------------------------- */
+        #section0{
+            background-color: #BFDA00;
+        }
+        #section0 h1{
+            color: #444;
+        }
+        #section0 p{
+            color: #333;
+            opacity: 0.4;
+        }
