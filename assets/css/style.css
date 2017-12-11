@@ -117,15 +117,29 @@ tr.selected {
             text-align: center;
         }
 
+        .slide {
+        }
         /* Section 1
          * --------------------------------------- */
         #section0{
-            background-color: #BFDA00;
-        }
+/*            background-color: #BFDA00;
+  */      }
         #section0 h1{
             color: #444;
         }
         #section0 p{
             color: #333;
             opacity: 0.4;
+        }
+
+        body {
+            background: url("../images/Highway.jpg") no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .bananas {
+            background-color: rgba(85, 85, 85, 0.7);
+            position: absolute;
+            height: 100%;
+            width: 100%;
         }
