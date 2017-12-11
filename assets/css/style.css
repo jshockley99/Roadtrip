@@ -32,6 +32,20 @@
 
  #landing-page, #roadtrip-form-page, #city-page, #playlist-page {
     display: inline-block;
+}
+/* Custom styles */
+tr.selected {
+  background-color: #555;
+}
+
+#city-table {
+  margin: 20px auto;
+  }
+
+#table-container {
+    padding: 0 50px;
+}
+#roadtrip-form-page {
     height: 100vh;
     width: 100vw;
     margin: 0;
