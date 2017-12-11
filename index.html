@@ -50,60 +50,67 @@
                                 </div>
                             </div>
                         </div> -->
-
                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" id="spotAuth" href="https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://jshockley99.github.io/Roadtrip&response_type=token&state=123">Authorise Spotify</button>
-                        </div>
-
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div id="roadtrip-form-page">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Road Trip Form</h3>
-                        </div>
-                        <div class="panel-body">
-                            <form role="form">
-                                <div class="form-group">
-                                    <label for="origin-input">Starting Location</label>
-                                    <input type="text" class="form-control" id="origin-input" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="destination-input">Destination</label>
-                                    <input type="text" class="form-control" id="destination-input" />
-                                </div>
-                                <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                                  <button type="submit" class="btn btn-primary" id="continue">Continue</button>
-                            </form>
-                        </div>
-                        <div class="panel-footer">
+                    <div class="fade">
+                        <h1 class="heading-bar">RoadTrip</h1>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Road Trip Form</h3>
+                            </div>
+                            <div class="panel-body">
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label for="origin-input">Starting Location</label>
+                                        <input type="text" class="form-control" id="origin-input" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="destination-input">Destination</label>
+                                        <input type="text" class="form-control" id="destination-input" />
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                                    <button type="submit" class="btn btn-primary" id="continue">Continue</button>
+                                </form>
+                            </div>
+                            <div class="panel-footer">
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div id="city-page" class="panel panel-default">
-                    <h3>Road Trip Playlist</h3>
-                    <h4>Cities visited during this trip</h4>
-                    <div id="table-container">
-                    	<table id="city-table" class="table">
-                        <tbody id="city-list">
-                        </tbody>
-                    	</table>
+                    <div class="fade">
+                        <h1 class="heading-bar">RoadTrip</h1>
+                        <h3>City List</h3>
+                        <h4>Cities visited during this trip</h4>
+                        <div id="table-container">
+                            <table id="city-table" class="table">
+                                <tbody id="city-list">
+                                </tbody>
+                            </table>
+                        </div>
+                        <button class="btn btn-primary" id="currate">Create Playlist</button>
                     </div>
-                    <button class="btn btn-primary" id="currate">Create Playlist</button>
-
                 </div>
                 <div id="playlist-page" class="panel panel-default">
-                    <h1>Road Trip Playlist</h1>
-                    <!-- <iframe src="https://open.spotify.com/embed?uri=https://open.spotify.com/user/officialmiguel/playlist/7o9OW7GWfcP3XX0AS4qCLv&theme=white" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe> -->
-                    <button class="btn btn-primary">Save to Spotify</button>
+                    <div class="fade">
+                        <h1 class="heading-bar">RoadTrip</h1>
+                        <h1>Playlist</h1>
+                        <!-- <iframe src="https://open.spotify.com/embed?uri=https://open.spotify.com/user/officialmiguel/playlist/7o9OW7GWfcP3XX0AS4qCLv&theme=white" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe> -->
+                        <button class="btn btn-primary">Save to Spotify</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>

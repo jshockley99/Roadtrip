@@ -47,6 +47,7 @@ $(document).ready(function() {
         event.preventDefault();
 
         window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://ovie4.github.io/Roadtrip-Spotify-API-testing/&response_type=token&state=123";
+        $("#roadtrip-form-page").css("display", "block");
     });//ends spotify authorisation
 
     //declare global variables
@@ -72,7 +73,7 @@ $(document).ready(function() {
     //get user ID after authentication
     getUserId();
     
-    $("#curate").on("click", function() {
+    $("#currate").on("click", function() {
         //take value from selection on form and get city
         
         var playlistArray = [];
@@ -113,6 +114,8 @@ $(document).ready(function() {
         currentPlaylistId = playlistArray[randomiser];
         console.log(currentPlaylistId);
         console.log(userId);
+        $("#city-page").css("display", "none");
+        $("#playlist-page").css("display", "block");
         $("#playlist-page").append('<iframe src="https://open.spotify.com/embed?uri=https://open.spotify.com/user/"'+userId+'"/playlist/"'+currentPlaylistId+'"&theme=white" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>')
     }//end of randomPlaylistSel
     randomPlaylistSel();
@@ -122,8 +125,10 @@ $(document).ready(function() {
 
 // this click listener will need to be updated to trigger after 
 //second Google AJAX call, (?within continue button?)
-$("#submit").on("click", function(e) {
+$("#continue").on("click", function(e) {
     event.preventDefault ();
+    $("#roadtrip-form-page").css("display", "none");    
+    $("#city-page").css("display", "block");    
     displayCities ();
 });
 
