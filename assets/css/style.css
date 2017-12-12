@@ -22,34 +22,43 @@
     background-color: #555;
     border: 1px solid #333;
 }
+
+
 /* body {
     overflow: hidden;
  }*/
 
 .container {
-    width: 500vw;
+    width: 100vw;
 }
 
 .site-wrapper {
-    background: url(../images/Highway.jpg) no-repeat #333;
-    background-size: 100% 100%; 
+    /*background: url(../images/Highway.jpg) no-repeat #333;*/
+    background-size: 100% 100%;
 }
 
- #landing-page, #roadtrip-form-page, #city-page, #playlist-page {
+/*#landing-page,
+#roadtrip-form-page,
+#city-page,
+#playlist-page {
     display: block;
-}
+}*/
+
+
 /* Custom styles */
+
 tr.selected {
-  background-color: #555;
+    background-color: #555;
 }
 
 #city-table {
-  margin: 20px auto;
-  }
+    margin: 20px auto;
+}
 
 #table-container {
     padding: 0 50px;
 }
+
 #roadtrip-form-page {
     height: 100vh;
     width: 100vw;
@@ -62,13 +71,22 @@ body {
         background-size: 100% 100%;
     }
 
-    .bananas {
+.grey-fade {
         background-color: rgba(85, 85, 85, 0.7);
-        position: absolute;
+/*        position: absolute;
         height: 100%;
-        width: 100%;
+        width: 100%;*/
     }
 
- #spinner {
+
+#spinner {
     display: none;
- }
+}
+
+#continue {
+    display: none;
+}
+
+.hide {
+    display: none;
+}

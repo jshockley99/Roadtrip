@@ -119,6 +119,8 @@ $(document).ready(function() {
             console.log(userId);
             $("#playlist-page").html('<iframe src="https://open.spotify.com/embed?uri=https://open.spotify.com/user/"' + userId + '"/playlist/"' + currentPlaylistId + '"&theme=white" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>')
         } //end of randomPlaylistSel
+        $("#city-page").css("display", "none");
+        $("#playlist-page").css("display", "block");
         randomPlaylistSel();
     }); //ends continue button click listener
 
@@ -131,6 +133,7 @@ $(document).ready(function() {
         console.log("clicked continue");
         setTimeout(displayCities, 10000);
         console.log("ran displayCities");
+
     });
 
     // function sets the clicked table row to 'active' and 
