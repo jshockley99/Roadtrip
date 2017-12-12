@@ -10,7 +10,7 @@
     <!-- link to js file  -->
     <script type="text/javascript" src="./assets/js/google_api.js"></script>
     <script src="./assets/js/road_trip.js"></script>
-    
+
     <!-- css reset-->
     <link rel="stylesheet" type="text/css" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
     <!-- Added a link to Bootstrap-->
@@ -19,6 +19,9 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/cover.css">
     <!-- custom css-->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Favicon   -->
     <link rel="icon" type="image/png" href="https://adoptahighway.net/wp-content/uploads/2014/05/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -85,7 +88,8 @@
                                     <input type="text" class="form-control" id="destination-input" />
                                 </div>
                                 <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                                  <button type="submit" class="btn btn-primary" id="continue">Continue</button>
+                                <div id="spinner"><i class="fa fa-gear fa-spin" style="font-size:24px"></i></div>
+                                <button type="submit" class="btn btn-primary" id="continue">Continue</button>
                             </form>
                         </div>
                         <div class="panel-footer">
@@ -96,9 +100,7 @@
                     <h1>Road Trip Playlist</h1>
                     <h2>Cities visited during this trip</h2>
                     <table class="city-table">
-                        
                     </table>
-                    
                 </div>
                 <div>
                     <button class="btn btn-primary" id="curate">Continue</button>
@@ -112,4 +114,5 @@
         </div>
     </div>
 </body>
+
 </html>
