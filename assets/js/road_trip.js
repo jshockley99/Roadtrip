@@ -136,12 +136,10 @@ $(document).ready(function() {
         
             console.log(randomiser);
             console.log(playlistArray);
-            var currentPlaylistIdAndOwner = playlistArray[randomiser];
-            console.log(currentPlaylistIdAndOwner);
-            var currentPlaylistIdAndOwnerSplit = currentPlaylistIdAndOwner.split(",");
-            var currentPlaylistId = currentPlaylistIdAndOwnerSplit[0];
-            var playlistOwner = currentPlaylistIdAndOwnerSplit[1];
-            console.log(currentPlaylistIdAndOwnerSplit);
+            var currentPlaylistId = playlistArray[randomiser][0];
+            var playlistOwner = playlistArray[randomiser][1];
+            console.log(currentPlaylistId);
+            console.log(playlistOwner);
             var iframeReqs = ' width="300" height="380" frameborder="0" allowtransparency="true"';
             var iframeLink = "https://open.spotify.com/embed?uri=spotify:user:"+playlistOwner+":spotify:playlist:"+currentPlaylistId+"&theme=white&view=coverart"+iframeReqs;
             iframeFinal = '<iframe src=' + iframeLink + '></iframe>';
@@ -151,7 +149,7 @@ $(document).ready(function() {
         $("#city-page").css("display", "none");
         $("#playlist-page").css("display", "block");
         
-        setTimeout(randomPlaylistSel, 8000);
+        setTimeout(randomPlaylistSel, 5000);
 
     }); //ends continue button click listener
 
