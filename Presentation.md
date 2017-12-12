@@ -16,5 +16,5 @@
 
 * Demonstration of functionality 
 
-* Directions for future development -  
+* Directions for future development - Integrating Trip Advisor, integrating Band In Town for local events, integrating Weather for each location, integrating a swipe functionality into the User Interface, allowing multiple cities to query the playlist, create an auto refresh within the Google API if route is changed.
 
