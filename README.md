@@ -1,4 +1,4 @@
-# Project Title: Roadtrip Playlist
+# Project Title: RoadTrip
 
 Contributors: 
 Julie Shockley, Ovie Omene, Peter Fullen, Janessa Hanna 
