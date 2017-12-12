@@ -18,11 +18,8 @@ $(document).ready(function() {
     var city;
     var currentPlaylistId;
     var playlistArray = [];
-<<<<<<< HEAD
-=======
-    var playlistOwner;
->>>>>>> 753ec1a4d8a55bf8759a0374e770db9e6325911e
 
+    var playlistOwner;
 
     function displayCities() {
 
@@ -66,11 +63,13 @@ $(document).ready(function() {
     //spotify auth redirect on clicking authorise button
     $("#spotAuth").on("click", function(event) {
         event.preventDefault();
-<<<<<<< HEAD
         window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://ovie4.github.io/Roadtrip-Spotify-API-testing/&response_type=token&state=123";
-=======
+
         window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://jshockley99.github.io/Roadtrip&response_type=token&state=123";
->>>>>>> 753ec1a4d8a55bf8759a0374e770db9e6325911e
+        
+        $("#landing-page").addClass("hide");
+        $("#roadtrip-form-page").removeClass("hide");
+
     }); //ends spotify authorisation
 
     //get user ID after authentication
@@ -82,6 +81,9 @@ $(document).ready(function() {
         e.preventDefault();
         setTimeout(displayCities, 10000);
         console.log("ran displayCities");
+
+        $("#roadtrip-form-page").addClass("hide");
+        $("#city-list").removeClass("hide");
     });
 
     // function sets the clicked table row to 'active' and 
@@ -146,15 +148,19 @@ $(document).ready(function() {
             var currentPlaylistId = playlistArray[randomiser][0];
             var playlistOwner = playlistArray[randomiser][1];
             console.log(currentPlaylistId);
-<<<<<<< HEAD
+
             console.log(userId);
             var iframeLink = "https://open.spotify.com/embed?uri=spotify:user:"+userId+":playlist:"+currentPlaylistId+" width=300 height=380 frameborder=0 allowtransparency=true";
             $("#playlist-page").html('<iframe src=' + iframeLink + '></iframe>');
         } //end of randomPlaylistSel
-        $("#city-page").css("display", "none");
-        $("#playlist-page").css("display", "block");
+
+        // $("#city-page").css("display", "none");
+        // $("#playlist-page").css("display", "block");
+        $("#city-list").addClass("hide");
+        $("#playlist-page").removeClass("hide");
+        
         randomPlaylistSel();
-=======
+
             console.log(playlistOwner);
             var iframeReqs = ' width="300" height="380" frameborder="0" allowtransparency="true"';
 var iframeURL ="https://open.spotify.com/embed/user/"
@@ -168,8 +174,7 @@ var iframeURL ="https://open.spotify.com/embed/user/"
         $("#city-page").css("display", "none");
         $("#playlist-page").css("display", "block");
         
->>>>>>> 753ec1a4d8a55bf8759a0374e770db9e6325911e
-        setTimeout(randomPlaylistSel, 5000);
+       setTimeout(randomPlaylistSel, 5000);
 
     }); //ends continue button click listener
 
