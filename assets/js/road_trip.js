@@ -5,7 +5,10 @@ if (window.location.hash) {
     var accessToken = accessKeyArray[1];
     console.log(accessToken);
 } else {
-    alert("You need to Authorise Spotify"); //use modal instead
+    //alert("You need to Authorise Spotify"); //use modal instead
+
+    $('#myModal').modal('show');
+
 }
 $(document).ready(function() {
 
@@ -136,10 +139,13 @@ $(document).ready(function() {
             var iframeLink = "https://open.spotify.com/embed?uri=spotify:user:"+userId+":playlist:"+currentPlaylistId+" width=300 height=380 frameborder=0 allowtransparency=true";
             $("#playlist-page").html('<iframe src=' + iframeLink + '></iframe>');
         } //end of randomPlaylistSel
+        $("#city-page").css("display", "none");
+        $("#playlist-page").css("display", "block");
         randomPlaylistSel();
         setTimeout(randomPlaylistSel, 5000);
 
     }); //ends continue button click listener
+
 
 
 
