@@ -136,7 +136,7 @@ $(document).ready(function() {
             currentPlaylistId = playlistArray[randomiser];
             console.log(currentPlaylistId);
             console.log(userId);
-            var iframeReqs = " width=300 height=380 frameborder=0 allowtransparency=true";
+            var iframeReqs = '' width="300" height="380" frameborder="0" allowtransparency='true"';
             var iframeLink = "https://open.spotify.com/embed?uri=spotify:user:"+userId+":playlist:"+currentPlaylistId+"&theme=white&view=coverart"+iframeReqs;
             console.log(iframeLink);
             $("#playlist-page").html('<iframe src=' + iframeLink + '></iframe>');
