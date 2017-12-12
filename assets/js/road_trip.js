@@ -141,9 +141,12 @@ $(document).ready(function() {
             console.log(currentPlaylistId);
             console.log(playlistOwner);
             var iframeReqs = ' width="300" height="380" frameborder="0" allowtransparency="true"';
-            var iframeLink ='https://cors-anywhere.herokuapp.com/https://open.spotify.com/embed?uri=spotify:user:' + playlistOwner+ ':playlist:' + currentPlaylistId + '&theme=white&view=coverart' + iframeReqs;
-            var iframeFinal = `<iframe src=${iframeLink}></iframe>`;
-            console.log(iframeFinal);
+var iframeURL = “https://open.spotify.com/embed/user/”
+                iframeURL +=  + playlistOwner+ ‘:playlist:’ + currentPlaylistId + iframeReqs ;
+
+               var finalIframe = $(‘<iframe>’);
+                finalIframe.attr(“src”, “iframeURL” ) ;
+                console.log(iframeFinal);
             $("#playlist-page").html(iframeFinal);
         } //end of randomPlaylistSel
         $("#city-page").css("display", "none");
