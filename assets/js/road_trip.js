@@ -158,7 +158,7 @@ $(document).ready(function() {
         // $("#playlist-page").css("display", "block");
         $("#city-list").addClass("hide");
         $("#playlist-page").removeClass("hide");
-        
+
         randomPlaylistSel();
 
             console.log(playlistOwner);
