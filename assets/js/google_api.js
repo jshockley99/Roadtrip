@@ -99,7 +99,7 @@ $(document).ready(function() {
                 })
             ).then(function() {
 
-                console.log("Hey");
+               // console.log("Hey");
 
                 //localStorage.setItem("citiesArray", JSON.stringify(citiesArray));          ;
                 // console.log(newArray);
@@ -187,8 +187,8 @@ $(document).ready(function() {
         localStorage.clear();
         apiCall();
         $('#submit').hide();
-        $('#spinner').show();
-        setTimeout(12000);
+        $('#spinner').show();  
+        setTimeout(10000);
         $('#spinner').hide();
         $('#continue').show();
     })
