@@ -133,7 +133,7 @@ $(document).ready(function() {
 
             //get a random value from the corresponding array
             var randomiser = Math.round(Math.random() * playlistArray.length);
-            //something isn't right around here..
+        
             console.log(randomiser);
             console.log(playlistArray);
             currentPlaylistIdAndOwner = playlistArray[randomiser];
@@ -150,8 +150,8 @@ $(document).ready(function() {
         } //end of randomPlaylistSel
         $("#city-page").css("display", "none");
         $("#playlist-page").css("display", "block");
-        randomPlaylistSel();
-        setTimeout(randomPlaylistSel, 5000);
+        
+        setTimeout(randomPlaylistSel, 8000);
 
     }); //ends continue button click listener
 
