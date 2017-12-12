@@ -69,3 +69,7 @@ tr.selected {
 #spinner {
     display: none;
 }
+
+#continue {
+    display: none;
+}

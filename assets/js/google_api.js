@@ -42,8 +42,6 @@ $(document).ready(function() {
         //  grab origin and destination when submit is clicked
 
 
-
-
         // first ajax call to get lat and lng bases on starting point and destination
         $.ajax(settings).done(function(response) {
 
@@ -188,6 +186,11 @@ $(document).ready(function() {
         console.log("You clicked submit");
         localStorage.clear();
         apiCall();
+        $('#submit').hide();
+        $('#spinner').show();
+        setTimeout(12000);
+        $('#spinner').hide();
+        $('#continue').show();
     })
 
     $('#continue').on("click", function(e) {
