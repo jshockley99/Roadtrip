@@ -138,8 +138,9 @@ $(document).ready(function() {
             console.log(userId);
             var iframeReqs = ' width="300" height="380" frameborder="0" allowtransparency="true"';
             var iframeLink = "https://open.spotify.com/embed?uri=spotify:user:"+userId+":spotify:playlist:"+currentPlaylistId+"&theme=white&view=coverart"+iframeReqs;
-            console.log(iframeLink);
-            $("#playlist-page").html('<iframe src=' + iframeLink + '></iframe>');
+            iframeFinal = '<iframe src=' + iframeLink + '></iframe>';
+            console.log(iframeFinal);
+            $("#playlist-page").html(iframeFinal);
         } //end of randomPlaylistSel
         $("#city-page").css("display", "none");
         $("#playlist-page").css("display", "block");
