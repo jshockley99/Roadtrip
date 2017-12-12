@@ -148,13 +148,6 @@ $(document).ready(function() {
 
 
 
-
-
-
-
-
-
-
 }) //ends document ready
 
         //get spotify authorisation
