@@ -118,7 +118,7 @@ $(document).ready(function() {
                         var playlistAndCreatorArray= [playlistID,playlistCreator];
                         playlistArray.push(playlistAndCreatorArray);
                     }
-                    console.log(playlistArray);
+                    
                     //create object using city and playlistArray as key value pairs
                     cityPlaylist[city] = playlistArray;
                     console.log(cityPlaylist);
