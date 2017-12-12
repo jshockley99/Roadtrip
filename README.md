@@ -11,13 +11,13 @@ APIs Used:
 * Spotify (requires auth)
 
 Design process:
-We initially spent time brainstorming ideas, doing high level research and landing on a final idea. We landed on the RoadTrip app because  we all agreed that it had the highest level of usability.
-In the next stage of the project, we came up with the process flow and created our user stories.
-On the front-end, we utilized Sketch to create a wireframe of screen flows and then divided up each screen for development.
-On the back-end, we split the development of each API between Ovie and Peter.
-When specific sections of code were ready, we teamed up in pairs to review the code being merged into 'Master'.
-On the final day, we merged all functionality into the main page.
-Technologies used (and briefly how they work) - Google API, Spotify API, Bootstrap CSS and Javascript framework, Sketch for initial wireframe layout
+* We initially spent time brainstorming ideas, doing high level research and landing on a final idea. We landed on the RoadTrip app because  we all agreed that it had the highest level of usability.
+* In the next stage of the project, we came up with the process flow and created our user stories.
+* On the front-end, we utilized Sketch to create a wireframe of screen flows and then divided up each screen for development.
+* On the back-end, we split the development of each API between Ovie and Peter.
+* When specific sections of code were ready, we teamed up in pairs to review the code being merged into 'Master'.
+* On the final day, we merged all functionality into the main page.
+* Technologies used (and briefly how they work) - Google API, Spotify API, Bootstrap CSS and Javascript framework, Sketch for initial wireframe layout
 
 Rough Breakdown of Tasks:
 * Initial screen layout with inputs - begin location and end location
@@ -28,4 +28,9 @@ Rough Breakdown of Tasks:
 * Generate playlist from Spotify data
 
 Directions for future development: 
-Integrating Trip Advisor, integrating Band In Town for local events, integrating Weather for each location, integrating a swipe functionality into the User Interface, allowing multiple cities to query the playlist, create an auto refresh within the Google API if route is changed.
+* Integrating Trip Advisor
+* Integrating Band In Town for local events
+* Integrating Weather for each location
+* Integrating a swipe functionality into the User Interface and Back button for back-tracking
+* Allowing multiple cities to query the playlist
+* Create an auto refresh within the Google API if route is changed
