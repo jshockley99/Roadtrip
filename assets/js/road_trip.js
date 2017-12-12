@@ -140,7 +140,7 @@ $(document).ready(function() {
             console.log(currentPlaylistIdAndOwner);
             var currentPlaylistIdAndOwnerSplit = currentPlaylistIdAndOwner.split(",");
             var currentPlaylistId = currentPlaylistIdAndOwnerSplit[0];
-            var playlistOwner = currentPlaylistIdAndOwnerSplit[1],
+            var playlistOwner = currentPlaylistIdAndOwnerSplit[1];
             console.log(currentPlaylistIdAndOwnerSplit);
             var iframeReqs = ' width="300" height="380" frameborder="0" allowtransparency="true"';
             var iframeLink = "https://open.spotify.com/embed?uri=spotify:user:"+playlistOwner+":spotify:playlist:"+currentPlaylistId+"&theme=white&view=coverart"+iframeReqs;
