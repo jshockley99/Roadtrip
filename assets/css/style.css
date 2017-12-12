@@ -1,8 +1,8 @@
 /* Bootstrap overrides */
 
 .panel {
-    background-color: #333;
-    border: 1px solid #000;
+    background-color: rgba(51, 51, 51, 0.91);
+    border: 0;
 }
 
 .panel-default>.panel-heading {
@@ -23,18 +23,21 @@
     border: 1px solid #333;
 }
 
-
-/* body {
-    overflow: hidden;
- }*/
-
 .container {
     width: 100vw;
+    padding: 0;
 }
 
-.site-wrapper {
-    /*background: url(../images/Highway.jpg) no-repeat #333;*/
-    background-size: 100% 100%;
+body {
+        background: url("../images/Highway.jpg") no-repeat;
+        background-size: 100% 100%;
+        overflow: hidden;
+        height: 100vh;
+    }
+
+.grey-fade {
+        background-color: rgba(85, 85, 85, 0.7);
+
 }
 
 /*#landing-page,
@@ -64,19 +67,6 @@ tr.selected {
 /*    width: 100vw;*/
     margin: 0;
     padding: 0; }
-
-
-body {
-        background: url("../images/Highway.jpg") no-repeat;
-        background-size: 100% 100%;
-    }
-
-.grey-fade {
-        background-color: rgba(85, 85, 85, 0.7);
-/*        position: absolute;
-        height: 100%;
-        width: 100%;*/
-    }
 
 
 #spinner {
