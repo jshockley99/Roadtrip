@@ -136,8 +136,10 @@ $(document).ready(function() {
             //something isn't right around here..
             console.log(randomiser);
             console.log(playlistArray);
-            currentPlaylistId = playlistArray[randomiser];
-            console.log(currentPlaylistId);
+            currentPlaylistIdAndOwner = playlistArray[randomiser];
+            console.log(currentPlaylistIdAndOwner);
+            currentPlaylistId = currentPlaylistIdAndOwner[0];
+            playlistOwner = currentPlaylistIdAndOwner[1],
             console.log(userId);
             var iframeReqs = ' width="300" height="380" frameborder="0" allowtransparency="true"';
             var iframeLink = "https://open.spotify.com/embed?uri=spotify:user:"+playlistOwner+":spotify:playlist:"+currentPlaylistId+"&theme=white&view=coverart"+iframeReqs;
