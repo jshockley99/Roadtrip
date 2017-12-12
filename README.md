@@ -1,35 +1,31 @@
 # Project Title: Roadtrip Playlist
 
-Team Members: 
+Contributors: 
 Julie Shockley, Ovie Omene, Peter Fullen, Janessa Hanna 
 
 Project Description: 
-Our app is going to build a music playlist based on locations. The user will input a starting location and end location, then the app will generate a playlist based on the major cities in between the two cities. 
+Our app creates a music playlist based on a user's road trip route. The user inputs a starting location and end location. Then the app generates a playlist based on cities along the route. 
 
-Sketch of Final Product:
-Display current song playing and next in queue, display band information on current song, possibly  show the route between cities 
-
-APIs to be Used:
+APIs Used:
 * Google Maps
 * Spotify (requires auth)
-* Bands In Town
+
+Design process:
+We initially spent time brainstorming ideas, doing high level research and landing on a final idea. We landed on the RoadTrip app because  we all agreed that it had the highest level of usability.
+In the next stage of the project, we came up with the process flow and created our user stories.
+On the front-end, we utilized Sketch to create a wireframe of screen flows and then divided up each screen for development.
+On the back-end, we split the development of each API between Ovie and Peter.
+When specific sections of code were ready, we teamed up in pairs to review the code being merged into 'Master'.
+On the final day, we merged all functionality into the main page.
+Technologies used (and briefly how they work) - Google API, Spotify API, Bootstrap CSS and Javascript framework, Sketch for initial wireframe layout
 
 Rough Breakdown of Tasks:
 * Initial screen layout with inputs - begin location and end location
 * Container for playlist information and band information, potential 3rd container with map
 * Buttons with options for screen views (toggle between map and playlist)
 * Setup geolocation from Google Maps
-* Pull locations from Google Maps info for input into BandInTown
-* BandsInTown info feeds into Spotify API
+* Pull locations from Google Maps info for input into Spotify
 * Generate playlist from Spotify data
 
-
-
-Miscellaneous ideas:
-* Trip Advisor
-* News, Weather APIs
-* Marvel
-* Edamam (grocery store, Publix, WalMart)
-* YouTube
-* Sound Cloud
-* Splash (random images)
+Directions for future development: 
+Integrating Trip Advisor, integrating Band In Town for local events, integrating Weather for each location, integrating a swipe functionality into the User Interface, allowing multiple cities to query the playlist, create an auto refresh within the Google API if route is changed.
