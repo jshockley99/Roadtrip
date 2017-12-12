@@ -7,7 +7,7 @@ if (window.location.hash) {
 } else {
     //alert("You need to Authorise Spotify"); //use modal instead
 
-    
+
 
 }
 $(document).ready(function() {
@@ -66,7 +66,7 @@ $(document).ready(function() {
         window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://ovie4.github.io/Roadtrip-Spotify-API-testing/&response_type=token&state=123";
 
         window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://jshockley99.github.io/Roadtrip&response_type=token&state=123";
-        
+
         // $("#landing-page").addClass("hide");
         // $("#roadtrip-form-page").removeClass("hide");
 
@@ -124,10 +124,10 @@ $(document).ready(function() {
                     for (var i = 0; i < data.length; i++) {
                         var playlistID = data[i].id;
                         var playlistCreator = data[i].owner.id;
-                        var playlistAndCreatorArray= [playlistID,playlistCreator];
+                        var playlistAndCreatorArray = [playlistID, playlistCreator];
                         playlistArray.push(playlistAndCreatorArray);
                     }
-                    
+
                     //create object using city and playlistArray as key value pairs
                     cityPlaylist[city] = playlistArray;
                     console.log(cityPlaylist);
@@ -150,8 +150,15 @@ $(document).ready(function() {
             console.log(currentPlaylistId);
 
             console.log(userId);
-            var iframeLink = "https://open.spotify.com/embed?uri=spotify:user:"+userId+":playlist:"+currentPlaylistId+" width=300 height=380 frameborder=0 allowtransparency=true";
-            $("#playlist-page").html('<iframe src=' + iframeLink + '></iframe>');
+            console.log(playlistOwner);
+            var iframeReqs = ' width="300" height="380" frameborder="0" allowtransparency="true"';
+
+            var iframeURL = "https://open.spotify.com/embed/user/"
+            iframeURL += +playlistOwner + ':playlist:' + currentPlaylistId + iframeReqs;
+
+            var finalIframe = $('<iframe>');
+            finalIframe.attr('src', 'iframeURL');
+
         } //end of randomPlaylistSel
 
         // $("#city-page").css("display", "none");
@@ -161,23 +168,13 @@ $(document).ready(function() {
 
         randomPlaylistSel();
 
-            console.log(playlistOwner);
-            var iframeReqs = ' width="300" height="380" frameborder="0" allowtransparency="true"';
 
-            var iframeURL ="https://open.spotify.com/embed/user/"
-                iframeURL +=  + playlistOwner+ ':playlist:' + currentPlaylistId + iframeReqs ;
 
-               var finalIframe = $('<iframe>');
-                finalIframe.attr('src', 'iframeURL' ) ;
+        console.log(iframeFinal);
+        $("#playlist-page").html(iframeFinal);
 
-            
-                console.log(iframeFinal);
-            $("#playlist-page").html(iframeFinal);
-         //end of randomPlaylistSel
-        // $("#city-page").css("display", "none");
-        // $("#playlist-page").css("display", "block");
-        
-       setTimeout(randomPlaylistSel, 5000);
+
+        setTimeout(randomPlaylistSel, 5000);
 
     }); //ends continue button click listener
 
@@ -185,9 +182,9 @@ $(document).ready(function() {
 
 }) //ends document ready
 
-        //get spotify authorisation
-    //var clientID = "4a7d4aa309ce40a9b644635d2e74b1bb";
-    //var clientSecret = "e85c7c6bd60c48d1986be1d5b6b3095c";
-    //var scope = "playlist-modify-public";
-    //var redirectUri = 'https://ovie4.github.io/Roadtrip-Spotify-API-testing/index.html';
-    //var spotifyAuthUrl = 'https://accounts.spotify.com/authorize?client_id=' + clientID + '&redirect_uri=' + redirectUri + '&scope=' + scope + '&response_type=token';
+//get spotify authorisation
+//var clientID = "4a7d4aa309ce40a9b644635d2e74b1bb";
+//var clientSecret = "e85c7c6bd60c48d1986be1d5b6b3095c";
+//var scope = "playlist-modify-public";
+//var redirectUri = 'https://ovie4.github.io/Roadtrip-Spotify-API-testing/index.html';
+//var spotifyAuthUrl = 'https://accounts.spotify.com/authorize?client_id=' + clientID + '&redirect_uri=' + redirectUri + '&scope=' + scope + '&response_type=token';
