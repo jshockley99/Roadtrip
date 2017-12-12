@@ -141,7 +141,7 @@ $(document).ready(function() {
             console.log(currentPlaylistId);
             console.log(playlistOwner);
             var iframeReqs = ' width="300" height="380" frameborder="0" allowtransparency="true"';
-            var iframeLink = "https://open.spotify.com/embed/user/" + playlistOwner + "/playlist/" + currentPlaylistId + "&theme=white&view=coverart"+ iframeReqs;
+            var iframeLink = "https://open.spotify.com/embed?uri=spotify:user:" + playlistOwner + ":playlist:" + currentPlaylistId + iframeReqs;
             iframeFinal = '<iframe src=' + iframeLink + '></iframe>';
             console.log(iframeFinal);
             $("#playlist-page").html(iframeFinal);
