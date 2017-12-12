@@ -11,8 +11,13 @@ if (window.location.hash) {
 
 }
 $(document).ready(function() {
-    // function to display each Google city in a table on the page
-    //get city/state array string from local storage
+
+    //declare global variables
+    var userId;
+    var cityPlaylist = {};
+    var city;
+    var currentPlaylistId;
+    var playlistArray = [];
 
 
     function displayCities() {
@@ -22,6 +27,7 @@ $(document).ready(function() {
         console.log(cityArray);
         console.log("display cities ran");
         $("#city-list").empty();
+
         for (var i = 0; i < cityArray.length; i++) {
             var cityRow = $("<tr>");
             var cityCell = $("<td>");
@@ -30,32 +36,12 @@ $(document).ready(function() {
             var city = citySplit[0];
             cityRow.addClass("deselected");
             cityRow.attr("data-item-city", city);
+
             cityCell.append(cityState);
             cityRow.append(cityCell);
             $("#city-list").append(cityRow);
         }
     }
-
-    //get spotify authorisation
-    //var clientID = "4a7d4aa309ce40a9b644635d2e74b1bb";
-    //var clientSecret = "e85c7c6bd60c48d1986be1d5b6b3095c";
-    //var scope = "playlist-modify-public";
-    //var redirectUri = 'https://ovie4.github.io/Roadtrip-Spotify-API-testing/index.html';
-    //var spotifyAuthUrl = 'https://accounts.spotify.com/authorize?client_id=' + clientID + '&redirect_uri=' + redirectUri + '&scope=' + scope + '&response_type=token';
-
-    //spotify auth redirect on clicking authorise button
-    $("#spotAuth").on("click", function(event) {
-        event.preventDefault();
-
-        window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://https://jshockley99.github.io/Roadtrip/&response_type=token&state=123";
-    }); //ends spotify authorisation
-
-    //declare global variables
-    var userId;
-    var cityPlaylist = {};
-    var city = "";
-    var currentPlaylistId;
-    var playlistArray = [];
     //function to get user id
     function getUserId() {
         $.ajax({
@@ -64,25 +50,58 @@ $(document).ready(function() {
                 'Authorization': 'Bearer ' + accessToken,
             },
             success: function(response) {
-                console.log(response);
+
                 userId = response.id;
+                console.log(userId);
 
             } //ends success function
 
         }) //ends ajax call
-    } //ends getUserId function
+    } //ends getuserid function
+
+    //spotify auth redirect on clicking authorise button
+    $("#spotAuth").on("click", function(event) {
+        event.preventDefault();
+        window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://ovie4.github.io/Roadtrip-Spotify-API-testing/&response_type=token&state=123";
+    }); //ends spotify authorisation
+
     //get user ID after authentication
     getUserId();
+
+    // this click listener will need to be updated to trigger after 
+    //second Google AJAX call, (?within continue button?)
+    $("#continue").on("click", function(e) {
+        e.preventDefault();
+        setTimeout(displayCities, 10000);
+        console.log("ran displayCities");
+    });
+
+    // function sets the clicked table row to 'active' and 
+    // sets all other rows to 'inactive'
+    // *enhancement* can be updated for multiple 'active' selections
+    $("#city-table tbody").on("click", "tr", function() {
+        $(this).toggleClass("selected deselected");
+        $(this).siblings().attr("class", "deselected");
+        var b = $(".selected").attr("data-item-city");
+        console.log(b);
+
+    });
+    // city variable needed for Spotify query
+    // *enhancement* will need updates if allowing multiple selections
+    city = $(".selected").attr("data-item-city");
+    console.log(city);
+
+
 
     $("#curate").on("click", function() {
         //take value from selection on form and get city
 
         playlistArray = [];
-        city = "charlotte"; //whatever is passed from the click event
+        city = 'atlanta';
+        //whatever is passed from the click event
         //for each city ,call spotify and get corresponding playlist
         function getCityPlaylistObj() {
             //create new array of playlists
-
             $.ajax({
                 url: 'https://api.spotify.com/v1/search?q=' + city + '&type=playlist',
                 headers: {
@@ -101,7 +120,7 @@ $(document).ready(function() {
                     cityPlaylist[city] = playlistArray;
                     console.log(cityPlaylist);
                 } //end ajax call function
-                //display playlist in browser
+
             }); //end ajax call
         } //end getCityPlaylistObj function
         getCityPlaylistObj();
@@ -117,38 +136,23 @@ $(document).ready(function() {
             currentPlaylistId = playlistArray[randomiser];
             console.log(currentPlaylistId);
             console.log(userId);
-            $("#playlist-page").html('<iframe src="https://open.spotify.com/embed?uri=https://open.spotify.com/user/"' + userId + '"/playlist/"' + currentPlaylistId + '"&theme=white" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>')
+            var iframeLink = "https://open.spotify.com/embed?uri=spotify:user:"+userId+":playlist:"+currentPlaylistId+" width=300 height=380 frameborder=0 allowtransparency=true";
+            $("#playlist-page").html('<iframe src=' + iframeLink + '></iframe>');
         } //end of randomPlaylistSel
         $("#city-page").css("display", "none");
         $("#playlist-page").css("display", "block");
         randomPlaylistSel();
+        setTimeout(randomPlaylistSel, 5000);
+
     }); //ends continue button click listener
 
 
 
-    // this click listener will need to be updated to trigger after 
-    //second Google AJAX call, (?within continue button?)
-    $("#continue").on("click", function(e) {
-        e.preventDefault();
-        console.log("clicked continue");
-        setTimeout(displayCities, 10000);
-        console.log("ran displayCities");
+}) //ends document ready
 
-    });
-
-    // function sets the clicked table row to 'active' and 
-    // sets all other rows to 'inactive'
-    // *enhancement* can be updated for multiple 'active' selections
-    $("#city-table tbody").on("click", "tr", function() {
-        $(this).toggleClass("selected deselected");
-        $(this).siblings().attr("class", "deselected");
-        var b = $(".selected").attr("data-item-city");
-        console.log(b);
-    });
-
-    // city variable needed for Spotify query
-    // *enhancement* will need updates if allowing multiple selections
-    var city = $(".selected").attr("data-item-city");
-    console.log(city);
-
-});
+        //get spotify authorisation
+    //var clientID = "4a7d4aa309ce40a9b644635d2e74b1bb";
+    //var clientSecret = "e85c7c6bd60c48d1986be1d5b6b3095c";
+    //var scope = "playlist-modify-public";
+    //var redirectUri = 'https://ovie4.github.io/Roadtrip-Spotify-API-testing/index.html';
+    //var spotifyAuthUrl = 'https://accounts.spotify.com/authorize?client_id=' + clientID + '&redirect_uri=' + redirectUri + '&scope=' + scope + '&response_type=token';
