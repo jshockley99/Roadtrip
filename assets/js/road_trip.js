@@ -5,7 +5,10 @@ if (window.location.hash) {
     var accessToken = accessKeyArray[1];
     console.log(accessToken);
 } else {
-    alert("You need to Authorise Spotify"); //use modal instead
+    //alert("You need to Authorise Spotify"); //use modal instead
+
+    $('#myModal').modal('show');
+
 }
 $(document).ready(function() {
     // function to display each Google city in a table on the page
