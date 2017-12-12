@@ -18,8 +18,8 @@ $(document).ready(function() {
     var city;
     var currentPlaylistId;
     var playlistArray = [];
-    var playlistOwner;
 
+    var playlistOwner;
 
     function displayCities() {
 
@@ -63,7 +63,13 @@ $(document).ready(function() {
     //spotify auth redirect on clicking authorise button
     $("#spotAuth").on("click", function(event) {
         event.preventDefault();
+        window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://ovie4.github.io/Roadtrip-Spotify-API-testing/&response_type=token&state=123";
+
         window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://jshockley99.github.io/Roadtrip&response_type=token&state=123";
+        
+        // $("#landing-page").addClass("hide");
+        // $("#roadtrip-form-page").removeClass("hide");
+
     }); //ends spotify authorisation
 
     //get user ID after authentication
@@ -75,6 +81,9 @@ $(document).ready(function() {
         e.preventDefault();
         setTimeout(displayCities, 10000);
         console.log("ran displayCities");
+
+        // $("#roadtrip-form-page").addClass("hide");
+        // $("#city-list").removeClass("hide");
     });
 
     // function sets the clicked table row to 'active' and 
@@ -133,26 +142,42 @@ $(document).ready(function() {
 
             //get a random value from the corresponding array
             var randomiser = Math.round(Math.random() * playlistArray.length);
-        
+
             console.log(randomiser);
             console.log(playlistArray);
             var currentPlaylistId = playlistArray[randomiser][0];
             var playlistOwner = playlistArray[randomiser][1];
             console.log(currentPlaylistId);
+
+            console.log(userId);
+            var iframeLink = "https://open.spotify.com/embed?uri=spotify:user:"+userId+":playlist:"+currentPlaylistId+" width=300 height=380 frameborder=0 allowtransparency=true";
+            $("#playlist-page").html('<iframe src=' + iframeLink + '></iframe>');
+        } //end of randomPlaylistSel
+
+        // $("#city-page").css("display", "none");
+        // $("#playlist-page").css("display", "block");
+        // $("#city-list").addClass("hide");
+        // $("#playlist-page").removeClass("hide");
+
+        randomPlaylistSel();
+
             console.log(playlistOwner);
             var iframeReqs = ' width="300" height="380" frameborder="0" allowtransparency="true"';
+
             var iframeURL ="https://open.spotify.com/embed/user/"
                 iframeURL +=  + playlistOwner+ ':playlist:' + currentPlaylistId + iframeReqs ;
 
                var finalIframe = $('<iframe>');
                 finalIframe.attr('src', 'iframeURL' ) ;
+
+            
                 console.log(iframeFinal);
             $("#playlist-page").html(iframeFinal);
-        } //end of randomPlaylistSel
-        $("#city-page").css("display", "none");
-        $("#playlist-page").css("display", "block");
+         //end of randomPlaylistSel
+        // $("#city-page").css("display", "none");
+        // $("#playlist-page").css("display", "block");
         
-        setTimeout(randomPlaylistSel, 5000);
+       setTimeout(randomPlaylistSel, 5000);
 
     }); //ends continue button click listener
 

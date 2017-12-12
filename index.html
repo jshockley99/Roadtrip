@@ -26,7 +26,7 @@
     <script src="https://getbootstrap.com/docs/3.3/assets/js/ie10-viewport-bug-workaround.js"></script>
 </head>
 
-<body class="grey-fade>
+<body class="grey-fade">
 
     <div class="container">
         <div class="site-wrapper" >
@@ -63,9 +63,6 @@
 
                         <div id="roadtrip-form-page">
                             <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Road Trip Form</h3>
-                                </div>
                                 <div class="panel-body">
                                     <form role="form">
                                         <div class="form-group">
@@ -87,15 +84,15 @@
                         <div id="city-list" class="panel panel-default">
                             <h1>Road Trip Playlist</h1>
                             <h2>Cities visited during this trip</h2>
-                            <table class="city-table">
+                            <table id="city-table">
                             </table>
+                            
+                            <div>
+                                <button class="btn btn-primary" id="curate">curate playlist</button>
+                            </div>
                         </div>
 
-                        <div>
-                            <button class="btn btn-primary" id="curate">curate playlist</button>
-                        </div>
-
-                        <div id="playlist-page" class="panel panel-default embed-container">
+                        <div id="playlist-page" class=" panel panel-default embed-container">
                             <h1>Road Trip Playlist</h1>
                             <!-- <iframe src="https://open.spotify.com/embed?uri=https://open.spotify.com/user/officialmiguel/playlist/7o9OW7GWfcP3XX0AS4qCLv&theme=white" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe> -->
                             <button class="btn btn-primary">Save to Spotify</button>
