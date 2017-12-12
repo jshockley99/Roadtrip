@@ -174,7 +174,7 @@ $(document).ready(function() {
                 finalIframe.attr('src', iframeURL);
                 console.log(iframeFinal);
             $("#playlist-page").html(iframeFinal);
-        } //end of randomPlaylistSel
+         //end of randomPlaylistSel
         // $("#city-page").css("display", "none");
         // $("#playlist-page").css("display", "block");
         
