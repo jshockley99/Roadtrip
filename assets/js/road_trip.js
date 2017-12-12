@@ -67,8 +67,8 @@ $(document).ready(function() {
 
         window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://jshockley99.github.io/Roadtrip&response_type=token&state=123";
         
-        $("#landing-page").addClass("hide");
-        $("#roadtrip-form-page").removeClass("hide");
+        // $("#landing-page").addClass("hide");
+        // $("#roadtrip-form-page").removeClass("hide");
 
     }); //ends spotify authorisation
 
@@ -82,8 +82,8 @@ $(document).ready(function() {
         setTimeout(displayCities, 10000);
         console.log("ran displayCities");
 
-        $("#roadtrip-form-page").addClass("hide");
-        $("#city-list").removeClass("hide");
+        // $("#roadtrip-form-page").addClass("hide");
+        // $("#city-list").removeClass("hide");
     });
 
     // function sets the clicked table row to 'active' and 
@@ -156,8 +156,8 @@ $(document).ready(function() {
 
         // $("#city-page").css("display", "none");
         // $("#playlist-page").css("display", "block");
-        $("#city-list").addClass("hide");
-        $("#playlist-page").removeClass("hide");
+        // $("#city-list").addClass("hide");
+        // $("#playlist-page").removeClass("hide");
 
         randomPlaylistSel();
 
@@ -171,8 +171,8 @@ var iframeURL ="https://open.spotify.com/embed/user/"
                 console.log(iframeFinal);
             $("#playlist-page").html(iframeFinal);
         } //end of randomPlaylistSel
-        $("#city-page").css("display", "none");
-        $("#playlist-page").css("display", "block");
+        // $("#city-page").css("display", "none");
+        // $("#playlist-page").css("display", "block");
         
        setTimeout(randomPlaylistSel, 5000);
 
