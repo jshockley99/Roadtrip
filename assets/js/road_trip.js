@@ -7,7 +7,7 @@ if (window.location.hash) {
 } else {
     //alert("You need to Authorise Spotify"); //use modal instead
 
-    $('#myModal').modal('show');
+    
 
 }
 $(document).ready(function() {
@@ -136,7 +136,8 @@ $(document).ready(function() {
             currentPlaylistId = playlistArray[randomiser];
             console.log(currentPlaylistId);
             console.log(userId);
-            var iframeLink = "https://open.spotify.com/embed?uri=spotify:user:"+userId+":playlist:"+currentPlaylistId+" width=300 height=380 frameborder=0 allowtransparency=true";
+            var iframeReqs = " width=300 height=380 frameborder=0 allowtransparency=true";
+            var iframeLink = "https://open.spotify.com/embed?uri=spotify:user:"+userId+":playlist:"+currentPlaylistId+"&theme=white&view=coverart"+iframeReqs;
             $("#playlist-page").html('<iframe src=' + iframeLink + '></iframe>');
         } //end of randomPlaylistSel
         $("#city-page").css("display", "none");
