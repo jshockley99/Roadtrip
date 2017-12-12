@@ -142,7 +142,7 @@ $(document).ready(function() {
 
             //get a random value from the corresponding array
             var randomiser = Math.round(Math.random() * playlistArray.length);
-        
+
             console.log(randomiser);
             console.log(playlistArray);
             var currentPlaylistId = playlistArray[randomiser][0];
@@ -163,11 +163,15 @@ $(document).ready(function() {
 
             console.log(playlistOwner);
             var iframeReqs = ' width="300" height="380" frameborder="0" allowtransparency="true"';
-var iframeURL ="https://open.spotify.com/embed/user/"
-                iframeURL +=  + playlistOwner+ ':playlist:' + currentPlaylistId + iframeReqs ;
-
-               var finalIframe = $('<iframe>');
-                finalIframe.attr('src', 'iframeURL' ) ;
+            // var iframeURL ="https://open.spotify.com/embed/user/"
+            //     iframeURL +=  + playlistOwner+ ':playlist:' + currentPlaylistId + iframeReqs ;
+            // var finalIframe = $('<iframe>');
+            //     finalIframe.attr('src', 'iframeURL' ) ;
+                
+                var iframeURL  = "https://open.spotify.com/embed/user/";
+                iframeURL += playlistOwner + ':playlist:' + currentPlaylistId + iframeReqs;
+                var finalIframe = $('<iframe>');
+                finalIframe.attr('src', iframeURL);
                 console.log(iframeFinal);
             $("#playlist-page").html(iframeFinal);
         } //end of randomPlaylistSel
