@@ -18,6 +18,7 @@ $(document).ready(function() {
     var city;
     var currentPlaylistId;
     var playlistArray = [];
+    var playlistOwner;
 
 
     function displayCities() {
@@ -62,7 +63,7 @@ $(document).ready(function() {
     //spotify auth redirect on clicking authorise button
     $("#spotAuth").on("click", function(event) {
         event.preventDefault();
-        window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://ovie4.github.io/Roadtrip-Spotify-API-testing/&response_type=token&state=123";
+        window.location = "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://jshockley99.github.io/Roadtrip&response_type=token&state=123";
     }); //ends spotify authorisation
 
     //get user ID after authentication
@@ -113,7 +114,9 @@ $(document).ready(function() {
                     //loop through data array and push new playlists into playlist array
                     for (var i = 0; i < data.length; i++) {
                         var playlistID = data[i].id;
-                        playlistArray.push(playlistID);
+                        var playlistCreator = data[i].owner.id;
+                        var playlistAndCreatorArray= [playlistID,playlistCreator];
+                        playlistArray.push(playlistAndCreatorArray);
                     }
                     console.log(playlistArray);
                     //create object using city and playlistArray as key value pairs
@@ -137,7 +140,7 @@ $(document).ready(function() {
             console.log(currentPlaylistId);
             console.log(userId);
             var iframeReqs = ' width="300" height="380" frameborder="0" allowtransparency="true"';
-            var iframeLink = "https://open.spotify.com/embed?uri=spotify:user:"+userId+":spotify:playlist:"+currentPlaylistId+"&theme=white&view=coverart"+iframeReqs;
+            var iframeLink = "https://open.spotify.com/embed?uri=spotify:user:"+playlistOwner+":spotify:playlist:"+currentPlaylistId+"&theme=white&view=coverart"+iframeReqs;
             iframeFinal = '<iframe src=' + iframeLink + '></iframe>';
             console.log(iframeFinal);
             $("#playlist-page").html(iframeFinal);
