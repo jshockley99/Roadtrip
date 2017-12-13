@@ -28,15 +28,18 @@
     padding: 0;
 }
 
+/* Custom styles */
+
 body {
     background: url("../images/Highway.jpg") no-repeat;
     background-size: 100% 100%;
-    /*        overflow: hidden;*/
     height: 100vh;
 }
 
 .grey-fade {
     background-color: rgba(85, 85, 85, 0.7);
+    height: 100%;
+    width: 100%;
 }
 
 

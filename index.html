@@ -26,15 +26,12 @@
     <script src="https://getbootstrap.com/docs/3.3/assets/js/ie10-viewport-bug-workaround.js"></script>
 </head>
 
-<body class="grey-fade">
-
-    <div class="container">
-        <div class="site-wrapper" >
+<body>
+    <div class="container grey-fade">
+        <div class="site-wrapper">
             <div class="site-wrapper-inner">
                 <div class="cover-container">
                     <div class="inner cover">
-                        
-
                         <div id="landing-page">
                             <h1 class="cover-heading">RoadTrip</h1>
                             <!-- Modal -->
@@ -60,7 +57,6 @@
                             <!-- spotify authorise button -->
                             <a class="btn btn-primary btn-lg" href="https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://jshockley99.github.io/Roadtrip&response_type=token&state=123">Authorise Spotify</a>
                         </div>
-
                         <div id="roadtrip-form-page">
                             <div class="panel panel-default">
                                 <div class="panel-body">
@@ -80,18 +76,17 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div id="city-list" class="panel panel-default">
-                            <h1>Road Trip Playlist</h1>
-                            <h2>Cities visited during this trip</h2>
-                            <table id="city-table">
+                        <div id="city-page" class="panel panel-default">
+                            <h3>City List</h3>
+                            <h4>Cities visited during this trip</h4>
+                            <table id="city-table" class="table">
+                                <tbody id="city-list">
+                                </tbody>
                             </table>
-                                                      
                         </div>
-                         <div>
-                                <button class="btn btn-primary" id="curate">curate playlist</button>
-                            </div>
-
+                        <div>
+                            <button class="btn btn-primary" id="curate">curate playlist</button>
+                        </div>
                         <div id="playlist-page" class=" panel panel-default embed-container">
                             <h1>Road Trip Playlist</h1>
                             <iframe src="https://open.spotify.com/embed/user/1249675097/playlist/6RiXXGlM62EXYTat8dmnve" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
@@ -102,7 +97,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
