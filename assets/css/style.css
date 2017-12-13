@@ -29,16 +29,16 @@
 }
 
 body {
-        background: url("../images/Highway.jpg") no-repeat;
-        background-size: 100% 100%;
-/*        overflow: hidden;*/
-        height: 100vh;
-    }
+    background: url("../images/Highway.jpg") no-repeat;
+    background-size: 100% 100%;
+    /*        overflow: hidden;*/
+    height: 100vh;
+}
 
 .grey-fade {
-        background-color: rgba(85, 85, 85, 0.7);
-
+    background-color: rgba(85, 85, 85, 0.7);
 }
+
 
 /*#landing-page,
 #roadtrip-form-page,
@@ -64,9 +64,10 @@ tr.selected {
 
 #roadtrip-form-page {
     height: 100vh;
-/*    width: 100vw;*/
+    /*    width: 100vw;*/
     margin: 0;
-    padding: 0; }
+    padding: 0;
+}
 
 
 #spinner {

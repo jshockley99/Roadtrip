@@ -3,7 +3,6 @@ if (window.location.hash) {
     var hashArray = hashString.split("&");
     var accessKeyArray = hashArray[0].split("=");
     var accessToken = accessKeyArray[1];
-    console.log(accessToken);
 } else {
     //alert("You need to Authorise Spotify"); //use modal instead
 
@@ -25,8 +24,6 @@ $(document).ready(function() {
 
         var cityArray = localStorage.getItem('citiesAndState');
         cityArray = JSON.parse(cityArray);
-        console.log(cityArray);
-        console.log("display cities ran");
         $("#city-list").empty();
 
         for (var i = 0; i < cityArray.length; i++) {
@@ -53,7 +50,6 @@ $(document).ready(function() {
             success: function(response) {
 
                 userId = response.id;
-                console.log(userId);
 
             } //ends success function
 
@@ -80,7 +76,6 @@ $(document).ready(function() {
     $("#continue").on("click", function(e) {
         e.preventDefault();
         setTimeout(displayCities, 10000);
-        console.log("ran displayCities");
 
         // $("#roadtrip-form-page").addClass("hide");
         // $("#city-list").removeClass("hide");
@@ -93,13 +88,11 @@ $(document).ready(function() {
         $(this).toggleClass("selected deselected");
         $(this).siblings().attr("class", "deselected");
         var b = $(".selected").attr("data-item-city");
-        console.log(b);
 
     });
     // city variable needed for Spotify query
     // *enhancement* will need updates if allowing multiple selections
     city = $(".selected").attr("data-item-city");
-    console.log(city);
 
 
 
@@ -119,7 +112,6 @@ $(document).ready(function() {
                 },
                 success: function(response) {
                     var data = response.playlists.items;
-                    console.log(data);
                     //loop through data array and push new playlists into playlist array
                     for (var i = 0; i < data.length; i++) {
                         var playlistID = data[i].id;
@@ -130,7 +122,6 @@ $(document).ready(function() {
 
                     //create object using city and playlistArray as key value pairs
                     cityPlaylist[city] = playlistArray;
-                    console.log(cityPlaylist);
                 } //end ajax call function
 
             }); //end ajax call
@@ -143,14 +134,9 @@ $(document).ready(function() {
             //get a random value from the corresponding array
             var randomiser = Math.round(Math.random() * playlistArray.length);
 
-            console.log(randomiser);
-            console.log(playlistArray);
             var currentPlaylistId = playlistArray[randomiser][0];
             var playlistOwner = playlistArray[randomiser][1];
-            console.log(currentPlaylistId);
 
-            console.log(userId);
-            console.log(playlistOwner);
             var iframeReqs = ' width="300" height="380" frameborder="0" allowtransparency="true"';
 
             var iframeURL = "https://open.spotify.com/embed/user/"
@@ -170,7 +156,6 @@ $(document).ready(function() {
 
 
 
-        console.log(iframeFinal);
         $("#playlist-page").html(iframeFinal);
 
 

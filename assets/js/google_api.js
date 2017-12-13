@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    console.log("working");
 
     var origin;
     var destination;
@@ -38,7 +37,6 @@ $(document).ready(function() {
             'destination': destination,
             'key': 'AIzaSyBaNQW3FobOncUto_UN8kX1wDhI8JzJKcA'
         })
-        console.log(settings.url);
         //  grab origin and destination when submit is clicked
 
 
@@ -51,7 +49,6 @@ $(document).ready(function() {
                 legs.forEach(function(leg) {
                     var steps = leg.steps;
                     steps.forEach(function(step) {
-                        //console.log(step.end_location);
                         latLong.push(step.end_location);
                     });
                 });
@@ -64,7 +61,6 @@ $(document).ready(function() {
 
             latLong.forEach(function(latLong, llindex) {
 
-                //console.log(latLong.lat + " " + latLong.lng);
                 var latlng = latLong.lat + "," + latLong.lng;
                 var apikey = 'AIzaSyB6deBCs1OPwQ3rb4qxP8Y8XHzjwiOELI0';
                 var latlngSettings = {
@@ -79,7 +75,6 @@ $(document).ready(function() {
                     'latlng': latlng,
                     'key': apikey
                 });
-                //console.log(latlngSettings);
                 latLongArray.push(latlngSettings);
 
             }); // end of forEach
@@ -91,7 +86,6 @@ $(document).ready(function() {
                 latLongArray.forEach(function(array) {
                     $.get(array, function(response) {
                         citiesArray.push(response);
-                        console.log(citiesArray.length);
                         var length = citiesArray.length;
                         localStorage.setItem("response" + length, JSON.stringify(response));
                         localStorage.setItem("arrayLength", length);
@@ -99,40 +93,32 @@ $(document).ready(function() {
                 })
             ).then(function() {
 
-               // console.log("Hey");
 
                 //localStorage.setItem("citiesArray", JSON.stringify(citiesArray));          ;
-                // console.log(newArray);
             })
-            // console.log(latLongArray);
         }) //  closes inital ajax call;
     } // closes apiCall Function 
 
     function getCityState() {
         var cityState = [];
-        console.log("cityState");
         var city;
         var state;
         var results = [];
         var length = localStorage.getItem("arrayLength");
-        console.log(localStorage.getItem("arrayLength"));
         localStorage.setItem("citiesAndState", "");
         for (i = 0; i < length; i++) {
             var response = localStorage.getItem("response" + i);
             response = JSON.parse(response);
             if (response) {
-                console.log(response.results);
 
                 var results = response.results;
 
                 results.forEach(function(result) {
-                    console.log(result.address_components);
                     var address_components = result.address_components;
                     address_components.forEach(function(component) {
                         if (component.types[0] === "locality" && component.types[1] === "political") {
                             if (component.long_name) {
                                 city = component.long_name;
-                                //console.log(city);
 
                             }
                         }
@@ -142,7 +128,6 @@ $(document).ready(function() {
                                 // make sure city or state has a value and !== undefined
                                 if (city && state) {
                                     cityState.push(city + "," + state);
-                                    console.log(cityState);
 
                                     cityState = unique(cityState);
 
@@ -152,7 +137,6 @@ $(document).ready(function() {
                                 }
                             }
                         }
-                        //    console.log(address_component.types);
                     })
                 })
 
@@ -164,16 +148,8 @@ $(document).ready(function() {
             }
         }
 
-        //  console.log(results);
         //results = JSON.parse(results);
         //filterLatLngResponse(results);
-
-
-        // console.log(localStorageAddress);
-
-
-
-        //  console.log(latLong);
 
     } // end of cityState function 
     // on click event
@@ -182,12 +158,10 @@ $(document).ready(function() {
         e.preventDefault();
         origin = $('#origin-input').val();
         destination = $('#destination-input').val();
-        console.log(origin);
-        console.log("You clicked submit");
         localStorage.clear();
         apiCall();
         $('#submit').hide();
-        $('#spinner').show();  
+        $('#spinner').show();
         setTimeout(10000);
         $('#spinner').hide();
         $('#continue').show();
