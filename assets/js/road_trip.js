@@ -93,7 +93,8 @@ $(document).ready(function() {
     //take value from selection on form and get city
 
     playlistArray = [];
-    city = $(".selected").attr("data-item-city");//city = "atlanta";
+    cityRaw = $(".selected").attr("data-item-city");//city = "atlanta";
+    city = cityRaw.toLowerCase();
     //whatever is passed from the click event
     //for each city ,call spotify and get corresponding playlist
     function getCityPlaylistObj() {
@@ -104,7 +105,8 @@ $(document).ready(function() {
           Authorization: "Bearer " + accessToken
         },
         success: function(response) {
-          var data = response.playlists.items;
+          console.log(response);
+            var data = response.playlists.items;
           //loop through data array and push new playlists into playlist array
           for (var i = 0; i < data.length; i++) {
             var playlistID = data[i].id;
