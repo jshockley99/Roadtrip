@@ -149,7 +149,7 @@ $(document).ready(function() {
 
     randomPlaylistSel();
 
-    $("#playlist-page").html(iframeFinal);
+    $("#playlist-page").html(finalIframe);
 
     setTimeout(randomPlaylistSel, 5000);
   }); //ends continue button click listener
