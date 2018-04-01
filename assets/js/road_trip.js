@@ -9,6 +9,7 @@ if (window.location.hash) {
 $(document).ready(function() {
   //declare global variables
   var userId;
+  var cityPlaylist = {};
   var city;
   var currentPlaylistId;
   var playlistArray = [];
