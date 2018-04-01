@@ -43,14 +43,6 @@ body {
 }
 
 
-/*#landing-page,
-#roadtrip-form-page,
-#city-page,
-#playlist-page {
-    display: block;
-}*/
-
-
 /* Custom styles */
 
 tr.selected {
@@ -79,6 +71,10 @@ tr.selected {
 
 #continue {
     display: none;
+}
+
+.show {
+    display: block;
 }
 
 .hide {

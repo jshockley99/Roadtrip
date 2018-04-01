@@ -92,7 +92,8 @@ $(document).ready(function() {
                     });
                 })
             ).then(function() {
-
+                $('#spinner').hide();
+                $('#continue').show();
 
                 //localStorage.setItem("citiesArray", JSON.stringify(citiesArray));          ;
             })
@@ -147,12 +148,35 @@ $(document).ready(function() {
                 //filterLatLngResponse(response);
             }
         }
+        $("#roadtrip-form-page").toggleClass("show hide");
+        $("#city-page").toggleClass("hide show");
 
         //results = JSON.parse(results);
         //filterLatLngResponse(results);
 
     } // end of cityState function 
-    // on click event
+
+    function displayCities() {
+        var cityArray = localStorage.getItem("citiesAndState");
+        cityArray = JSON.parse(cityArray);
+        $("#city-list").empty();
+    
+        for (var i = 0; i < cityArray.length; i++) {
+          var cityRow = $("<tr>");
+          var cityCell = $("<td>");
+          var cityState = cityArray[i];
+          var citySplit = cityState.split(",");
+          var city = citySplit[0];
+          cityRow.addClass("deselected");
+          cityRow.attr("data-item-city", city);
+    
+          cityCell.append(cityState);
+          cityRow.append(cityCell);
+          $("#city-list").append(cityRow);
+        }
+      }
+    
+    // on click events
 
     $('#submit').on("click", function(e) {
         e.preventDefault();
@@ -162,18 +186,18 @@ $(document).ready(function() {
         apiCall();
         $('#submit').hide();
         $('#spinner').show();
-        setTimeout(10000);
-        $('#spinner').hide();
-        $('#continue').show();
+        // setTimeout(10000);
+        // $('#spinner').hide();
+        // $('#continue').show();
     })
 
     $('#continue').on("click", function(e) {
         cityState = [""];
         e.preventDefault();
         getCityState();
-        $("#roadtrip-form-page").css("display", "none");
-        $("#city-page").css("display", "block");
-
+        // $("#roadtrip-form-page").toggleClass("show hide");
+        // $("#city-page").toggleClass("hide show");
+        setTimeout(displayCities, 10000);
     });
 
 
