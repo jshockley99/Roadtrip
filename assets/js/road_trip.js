@@ -87,13 +87,13 @@ $(document).ready(function() {
   });
   // city variable needed for Spotify query
   // *enhancement* will need updates if allowing multiple selections
-  city = $(".selected").attr("data-item-city");
+//  city = $(".selected").attr("data-item-city");
 
   $("#curate").on("click", function() {
     //take value from selection on form and get city
 
     playlistArray = [];
-    //city = "atlanta";
+    city = $(".selected").attr("data-item-city");//city = "atlanta";
     //whatever is passed from the click event
     //for each city ,call spotify and get corresponding playlist
     function getCityPlaylistObj() {
@@ -119,6 +119,8 @@ $(document).ready(function() {
       }); //end ajax call
     } //end getCityPlaylistObj function
     getCityPlaylistObj();
+    console.log(city);
+    console.log(playlistArray);
     //function to randomise playlist selection
     function randomPlaylistSel() {
       //check to see which city was clicked
