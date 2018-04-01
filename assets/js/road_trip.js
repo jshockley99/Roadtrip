@@ -126,8 +126,8 @@ $(document).ready(function() {
       //get a random value from the corresponding array
       var randomiser = Math.round(Math.random() * playlistArray.length);
 
-      var currentPlaylistId = playlistArray[randomiser][0];
-      var playlistOwner = playlistArray[randomiser][1];
+      var currentPlaylistId = playlistArray[randomiser];//[0];
+      var playlistOwner = playlistArray[randomiser];//[1];
 
       var iframeReqs =
         ' width="300" height="380" frameborder="0" allowtransparency="true"';
