@@ -55,12 +55,12 @@ $("#city-table tbody").on("click", "tr", function() {
     var b = $(".selected").attr("data-item-city");
   });
 
-//take value from selection on form and get city
-    cityRaw = $(".selected").attr("data-item-city");//city = "atlanta";
-    city = cityRaw.toLowerCase();
     //whatever is passed from the click event
     //for each city ,call spotify and get corresponding playlist
 function getCityPlaylistObj() {
+//take value from selection on form and get city
+    cityRaw = $(".selected").attr("data-item-city");//city = "atlanta";
+    city = cityRaw.toLowerCase();
       //create new array of playlists
       $.ajax({
         url: "https://api.spotify.com/v1/search?q=" + city + "&type=playlist",
