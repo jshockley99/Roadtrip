@@ -64,6 +64,7 @@ function getCityPlaylistObj() {
     // cityRaw = $(".selected").attr("data-item-city");
     // city = cityRaw.toLowerCase();
     city = "atlanta";
+    playlistArray = [];
       //create new array of playlists
       $.ajax({
         url: "https://api.spotify.com/v1/search?q=" + city + "&type=playlist",
