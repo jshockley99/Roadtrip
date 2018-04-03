@@ -145,11 +145,10 @@ $(document).ready(function() {
           //filterLatLngResponse(response);
         }
       }
-    $.then(function() {
-      displayCities();
+    
+      setTimeout(displayCities(),10000);
       $("#roadtrip-form-page").toggleClass("show hide");
       $("#city-page").toggleClass("hide show");
-    });
 
     //results = JSON.parse(results);
     //filterLatLngResponse(results);
