@@ -110,6 +110,7 @@ function randomPlaylistSel() {
 // 
       var finalIframe = $("<iframe>");
       finalIframe.attr("src", "iframeURL");
+      return finalIframe
 } //end of randomPlaylistSel
 
 randomPlaylistSel();        
@@ -118,6 +119,8 @@ randomPlaylistSel();
 $("#playlist-page").html(finalIframe);
 
     setTimeout(randomPlaylistSel, 5000);
+    $("#city-page").toggleClass("show hide");
+    $("#playlist-page").toggleClass("hide show");
 
   }); //ends continue button click listener
 }); //ends document ready

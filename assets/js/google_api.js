@@ -148,8 +148,8 @@ $(document).ready(function() {
                 //filterLatLngResponse(response);
             }
         }
-        $("#roadtrip-form-page").toggleClass("show hide");
-        $("#city-page").toggleClass("hide show");
+        $('#continue').hide();
+        $('#spinner').show();
 
         //results = JSON.parse(results);
         //filterLatLngResponse(results);
@@ -195,9 +195,9 @@ $(document).ready(function() {
         cityState = [""];
         e.preventDefault();
         getCityState();
-        // $("#roadtrip-form-page").toggleClass("show hide");
-        // $("#city-page").toggleClass("hide show");
         setTimeout(displayCities, 10000);
+        $("#roadtrip-form-page").toggleClass("show hide");
+        $("#city-page").toggleClass("hide show");
     });
 
 
