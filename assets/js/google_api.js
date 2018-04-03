@@ -86,7 +86,7 @@ $(document).ready(function() {
           });
         })
       ).then(function() {
-        $("#spinner").hide();
+        $(".spinner").hide();
         $("#continue").show();
 
         //localStorage.setItem("citiesArray", JSON.stringify(citiesArray));          ;
@@ -101,7 +101,7 @@ $(document).ready(function() {
     var results = [];
     var length = localStorage.getItem("arrayLength");
     localStorage.setItem("citiesAndState", "");
-    $.when(function() {
+
       for (i = 0; i < length; i++) {
         var response = localStorage.getItem("response" + i);
         response = JSON.parse(response);
@@ -145,7 +145,7 @@ $(document).ready(function() {
           //filterLatLngResponse(response);
         }
       }
-    }).then(function() {
+    $.then(function() {
       displayCities();
       $("#roadtrip-form-page").toggleClass("show hide");
       $("#city-page").toggleClass("hide show");
@@ -184,7 +184,7 @@ $(document).ready(function() {
     localStorage.clear();
     apiCall();
     $("#submit").hide();
-    $("#spinner").show();
+    $(".spinner").show();
   });
 
   $("#continue").on("click", function(e) {
@@ -192,6 +192,6 @@ $(document).ready(function() {
     e.preventDefault();
     getCityState();
     $("#continue").hide();
-    $("#spinner").show();
+    $(".spinner").show();
   });
 }); // end of document ready
