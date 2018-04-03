@@ -186,9 +186,6 @@ $(document).ready(function() {
         apiCall();
         $('#submit').hide();
         $('#spinner').show();
-        // setTimeout(10000);
-        // $('#spinner').hide();
-        // $('#continue').show();
     })
 
     $('#continue').on("click", function(e) {

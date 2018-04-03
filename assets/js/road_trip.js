@@ -15,8 +15,8 @@ $(document).ready(function() {
   var playlistArray = [];
   var playlistOwner;
 
-//function to get user id
-function getUserId() {
+  //function to get user id
+  function getUserId() {
     $.ajax({
       url: "https://api.spotify.com/v1/me",
       headers: {
@@ -28,8 +28,8 @@ function getUserId() {
     }); //ends ajax call
   } //ends getuserid function
 
-//spotify auth redirect on clicking authorise button
-$("#spotAuth").on("click", function(event) {
+  //spotify auth redirect on clicking authorise button
+  $("#spotAuth").on("click", function(event) {
     event.preventDefault();
     // window.location =
     //   "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://ovie4.github.io/Roadtrip-Spotify-API-testing/&response_type=token&state=123";
@@ -38,16 +38,16 @@ $("#spotAuth").on("click", function(event) {
       "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://jshockley99.github.io/Roadtrip&response_type=token&state=123";
 
     $("#landing-page").toggleClass("show hide");
-//    $("#roadtrip-form-page").toggleClass("hide show");
+    //    $("#roadtrip-form-page").toggleClass("hide show");
   }); //ends spotify authorisation
 
   //get user ID after authentication
   getUserId();
 
-// function sets the clicked table row to 'active' and
-// sets all other rows to 'inactive'
-// *enhancement* can be updated for multiple 'active' selections
-$("#city-table tbody").on("click", "tr", function() {
+  // function sets the clicked table row to 'active' and
+  // sets all other rows to 'inactive'
+  // *enhancement* can be updated for multiple 'active' selections
+  $("#city-table tbody").on("click", "tr", function() {
     $(this).toggleClass("selected deselected");
     $(this)
       .siblings()
@@ -55,16 +55,17 @@ $("#city-table tbody").on("click", "tr", function() {
     var b = $(".selected").attr("data-item-city");
   });
 
-    //whatever is passed from the click event
-    //for each city ,call spotify and get corresponding playlist
-$("#curate").on("click", function() {
+  //whatever is passed from the click event
+  //for each city ,call spotify and get corresponding playlist
+  $("#curate").on("click", function() {
+    $("#city-page").toggleClass("show hide");
+    $("#playlist-page").toggleClass("hide show");
 
-function getCityPlaylistObj() {
-//take value from selection on form and get city
-    // cityRaw = $(".selected").attr("data-item-city");
-    // city = cityRaw.toLowerCase();
-    city = "atlanta";
-    playlistArray = [];
+    function getCityPlaylistObj() {
+      //take value from selection on form and get city
+      playlistArray = [];
+      cityRaw = $(".selected").attr("data-item-city");
+      city = cityRaw.toLowerCase();
       //create new array of playlists
       $.ajax({
         url: "https://api.spotify.com/v1/search?q=" + city + "&type=playlist",
@@ -73,7 +74,7 @@ function getCityPlaylistObj() {
         },
         success: function(response) {
           console.log(response);
-            var data = response.playlists.items;
+          var data = response.playlists.items;
           //loop through data array and push new playlists into playlist array
           for (var i = 0; i < data.length; i++) {
             var playlistID = data[i].id;
@@ -88,40 +89,36 @@ function getCityPlaylistObj() {
         } //end ajax call function
       }); //end ajax call
     } //end getCityPlaylistObj function
-    
-    getCityPlaylistObj()
 
-//function to randomise playlist selection
-function randomPlaylistSel() {
+    getCityPlaylistObj();
+
+    //function to randomise playlist selection
+    function randomPlaylistSel() {
       //check to see which city was clicked
 
       // get a random value from the corresponding array
       var randomiser = Math.round(Math.random() * playlistArray.length);
-// 
+      //
       var currentPlaylistId = playlistArray[randomiser][0];
       var playlistOwner = playlistArray[randomiser][1];
-// 
+      //
       var iframeReqs =
         ' width="300" height="380" frameborder="0" allowtransparency="true"';
-// 
+      //
       var iframeURL = "https://open.spotify.com/embed/user/";
       iframeURL +=
         +playlistOwner + ":playlist:" + currentPlaylistId + iframeReqs;
-// 
+      //
       var finalIframe = $("<iframe>");
       finalIframe.attr("src", "iframeURL");
-      return finalIframe
-} //end of randomPlaylistSel
+      return finalIframe;
+    } //end of randomPlaylistSel
 
-randomPlaylistSel();        
-    
+    randomPlaylistSel();
 
-$("#playlist-page").html(finalIframe);
+    $("#playlist-page").html(finalIframe);
 
     setTimeout(randomPlaylistSel, 5000);
-    $("#city-page").toggleClass("show hide");
-    $("#playlist-page").toggleClass("hide show");
-
   }); //ends continue button click listener
 }); //ends document ready
 
