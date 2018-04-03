@@ -61,8 +61,9 @@ $("#curate").on("click", function() {
 
 function getCityPlaylistObj() {
 //take value from selection on form and get city
-    cityRaw = $(".selected").attr("data-item-city");//city = "atlanta";
-    city = cityRaw.toLowerCase();
+    // cityRaw = $(".selected").attr("data-item-city");
+    // city = cityRaw.toLowerCase();
+    city = "atlanta";
       //create new array of playlists
       $.ajax({
         url: "https://api.spotify.com/v1/search?q=" + city + "&type=playlist",
