@@ -67,6 +67,7 @@ tr.selected {
 
 #spinner {
     display: none;
+    font-size: 24px;
 }
 
 #continue {
