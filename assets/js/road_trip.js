@@ -83,6 +83,7 @@ function getCityPlaylistObj() {
 
           //create object using city and playlistArray as key value pairs
           cityPlaylist[city] = playlistArray;
+          return playlistArray;
         } //end ajax call function
       }); //end ajax call
     } //end getCityPlaylistObj function
