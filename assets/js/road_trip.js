@@ -31,8 +31,8 @@ function getUserId() {
 //spotify auth redirect on clicking authorise button
 $("#spotAuth").on("click", function(event) {
     event.preventDefault();
-    window.location =
-      "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://ovie4.github.io/Roadtrip-Spotify-API-testing/&response_type=token&state=123";
+    // window.location =
+    //   "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://ovie4.github.io/Roadtrip-Spotify-API-testing/&response_type=token&state=123";
 
     window.location =
       "https://accounts.spotify.com/authorize?client_id=4a7d4aa309ce40a9b644635d2e74b1bb&redirect_uri=https://jshockley99.github.io/Roadtrip&response_type=token&state=123";
@@ -57,6 +57,8 @@ $("#city-table tbody").on("click", "tr", function() {
 
     //whatever is passed from the click event
     //for each city ,call spotify and get corresponding playlist
+$("#curate").on("click", function() {
+
 function getCityPlaylistObj() {
 //take value from selection on form and get city
     cityRaw = $(".selected").attr("data-item-city");//city = "atlanta";
@@ -80,52 +82,39 @@ function getCityPlaylistObj() {
 
           //create object using city and playlistArray as key value pairs
           cityPlaylist[city] = playlistArray;
-          var randomiser = Math.round(Math.random() * playlistArray.length);
-
-      var currentPlaylistId = playlistArray[randomiser][0];
-      var playlistOwner = playlistArray[randomiser][1];
-
-      var iframeReqs =
-        ' width="300" height="380" frameborder="0" allowtransparency="true"';
-
-      var iframeURL = "https://open.spotify.com/embed/user/";
-      iframeURL +=
-        +playlistOwner + ":playlist:" + currentPlaylistId + iframeReqs;
-
-      var finalIframe = $("<iframe>");
-      finalIframe.attr("src", "iframeURL");
-    $("#playlist-page").html(finalIframe);
         } //end ajax call function
       }); //end ajax call
     } //end getCityPlaylistObj function
+    
+    getCityPlaylistObj()
 
 //function to randomise playlist selection
 function randomPlaylistSel() {
       //check to see which city was clicked
 
-      //get a random value from the corresponding array
-    //   var randomiser = Math.round(Math.random() * playlistArray.length);
-
-    //   var currentPlaylistId = playlistArray[randomiser][0];
-    //   var playlistOwner = playlistArray[randomiser][1];
-
-    //   var iframeReqs =
-    //     ' width="300" height="380" frameborder="0" allowtransparency="true"';
-
-    //   var iframeURL = "https://open.spotify.com/embed/user/";
-    //   iframeURL +=
-    //     +playlistOwner + ":playlist:" + currentPlaylistId + iframeReqs;
-
-    //   var finalIframe = $("<iframe>");
-    //   finalIframe.attr("src", "iframeURL");
-    // $("#playlist-page").html(finalIframe);
+      // get a random value from the corresponding array
+      var randomiser = Math.round(Math.random() * playlistArray.length);
+// 
+      var currentPlaylistId = playlistArray[randomiser][0];
+      var playlistOwner = playlistArray[randomiser][1];
+// 
+      var iframeReqs =
+        ' width="300" height="380" frameborder="0" allowtransparency="true"';
+// 
+      var iframeURL = "https://open.spotify.com/embed/user/";
+      iframeURL +=
+        +playlistOwner + ":playlist:" + currentPlaylistId + iframeReqs;
+// 
+      var finalIframe = $("<iframe>");
+      finalIframe.attr("src", "iframeURL");
 } //end of randomPlaylistSel
 
-$("#curate").on("click", function() {
-    getCityPlaylistObj()
-        
+randomPlaylistSel();        
     
-//    setTimeout(randomPlaylistSel, 5000);
+
+$("#playlist-page").html(finalIframe);
+
+    setTimeout(randomPlaylistSel, 5000);
 
   }); //ends continue button click listener
 }); //ends document ready
